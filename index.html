@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discreet sourcing and private placement for high-value real estate, rare motorcars, and luxury marine assets.">
+  <meta name="theme-color" content="#06101d">
+  <title>Swift Deal Solutions | Private Asset Placement</title>
+  <style>
+    :root {
+      --navy-950:#06101d;--navy-900:#0a1727;--navy-800:#10243a;
+      --gold:#d4af37;--gold-bright:#e6ca6d;--gold-dark:#92701e;
+      --ivory:#f7f4ec;--paper:#efebe2;--white:#fff;--ink:#121c27;
+      --muted:#66717b;--line:rgba(18,28,39,.14)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--ink);font-family:Inter,Arial,sans-serif}
+    body.modal-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}img{display:block;max-width:100%}
+    ::selection{background:var(--gold);color:var(--navy-950)}
+    :focus-visible{outline:2px solid var(--gold-bright);outline-offset:4px}
+    .shell{margin:0 auto;max-width:1480px;padding:120px clamp(24px,6vw,94px)}
+    .serif{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+    .kicker{align-items:center;color:var(--gold-dark);display:flex;font-size:10px;font-weight:700;gap:12px;letter-spacing:.23em;margin:12px 0 25px;text-transform:uppercase}
+    .heading{font-family:Georgia,"Times New Roman",serif;font-size:clamp(40px,4.5vw,68px);font-weight:400;letter-spacing:-.04em;line-height:1.06;margin:0}
+    .button{align-items:center;border:0;cursor:pointer;display:inline-flex;font-size:10px;font-weight:700;gap:30px;justify-content:center;letter-spacing:.15em;min-height:56px;padding:0 27px;text-transform:uppercase;transition:.18s ease}
+    .button:hover{transform:translateY(-2px)}.button-gold{background:var(--gold);color:var(--navy-950)}.button-gold:hover{background:var(--gold-bright)}
+    .button-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}.button-ghost:hover{border-color:var(--gold-bright);color:var(--gold-bright)}
+
+    /* Header */
+    .site-header{align-items:center;backdrop-filter:blur(18px);background:rgba(6,16,29,.84);border-bottom:1px solid rgba(255,255,255,.1);display:flex;height:92px;justify-content:space-between;left:0;padding:0 clamp(24px,5vw,78px);position:absolute;right:0;top:0;z-index:20}
+    .brand{align-items:center;color:#fff;display:flex;gap:14px}.brand-mark{border:1px solid rgba(212,175,55,.88);display:grid;flex:0 0 auto;font-family:Georgia,serif;font-size:13px;height:43px;line-height:1;place-items:center;position:relative;transform:rotate(45deg);width:43px}
+    .brand-mark:after{border:1px solid rgba(212,175,55,.35);content:"";inset:5px;position:absolute}.brand-mark span{color:var(--gold-bright);position:absolute;transform:rotate(-45deg)}.brand-mark span:first-child{left:10px;top:8px}.brand-mark span:last-child{bottom:8px;right:10px}
+    .brand-name{display:flex;flex-direction:column;letter-spacing:.08em;line-height:1.05;text-transform:uppercase}.brand-name strong{font-family:Georgia,serif;font-size:16px;font-weight:500}.brand-name small{color:var(--gold-bright);font-size:8px;letter-spacing:.37em;margin-top:6px}
+    .nav-links{align-items:center;color:rgba(255,255,255,.76);display:flex;font-size:11px;gap:clamp(22px,3vw,44px);letter-spacing:.13em;text-transform:uppercase}.nav-links>a:not(.nav-cta){padding:12px 0;position:relative}.nav-links>a:not(.nav-cta):after{background:var(--gold);bottom:4px;content:"";height:1px;left:0;position:absolute;transform:scaleX(0);transform-origin:left;transition:.18s;width:100%}.nav-links>a:hover:after{transform:scaleX(1)}
+    .nav-cta{border:1px solid rgba(212,175,55,.72);color:var(--gold-bright);padding:13px 20px}.nav-cta:hover{background:var(--gold);color:var(--navy-950)}
+    .menu-button{background:transparent;border:0;display:none}.menu-button span{background:var(--gold-bright);display:block;height:1px;width:27px}
+
+    /* Hero */
+    .hero{align-items:flex-end;background-color:var(--navy-950);background-image:url('https://images.unsplash.com/photo-1756435292384-1bf32eff7baf?auto=format&fit=crop&fm=jpg&q=82&w=2400');background-position:center;background-size:cover;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.34fr);min-height:860px;overflow:hidden;padding:170px clamp(24px,7vw,112px) 92px;position:relative}
+    .hero:before{background:linear-gradient(90deg,rgba(4,12,23,.98) 0%,rgba(4,12,23,.85) 44%,rgba(4,12,23,.38) 76%,rgba(4,12,23,.55) 100%),linear-gradient(0deg,rgba(4,12,23,.75),transparent 58%);content:"";inset:0;position:absolute}
+    .hero-grid{background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:90px 90px;inset:0;mask-image:linear-gradient(to right,#000,transparent 75%);position:absolute}
+    .hero-content,.hero-aside,.scroll-cue{position:relative;z-index:2}.hero-content{max-width:930px}.eyebrow{align-items:center;color:var(--gold-bright);display:flex;font-size:10px;font-weight:700;gap:12px;letter-spacing:.23em;margin:0 0 25px;text-transform:uppercase}.eyebrow span{background:var(--gold);display:inline-block;height:1px;width:38px}
+    .hero h1{font-family:Georgia,serif;font-size:clamp(56px,7vw,108px);font-weight:400;letter-spacing:-.055em;line-height:.92;margin:0}.hero h1 em{color:var(--gold-bright);display:block;font-weight:400}.hero-copy{color:rgba(255,255,255,.72);font-size:clamp(16px,1.5vw,20px);line-height:1.72;margin:32px 0 36px;max-width:660px}.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+    .hero-aside{align-self:end;border-left:1px solid rgba(212,175,55,.36);margin-bottom:18px;padding-left:30px}.hero-aside>p{color:var(--gold-bright);font-size:9px;letter-spacing:.23em;margin:0 0 20px;text-transform:uppercase}.hero-aside div{border-top:1px solid rgba(255,255,255,.15);padding:17px 0}.hero-aside strong,.hero-aside span{display:block}.hero-aside strong{font-family:Georgia,serif;font-size:19px;font-weight:400;margin-bottom:6px}.hero-aside span{color:rgba(255,255,255,.55);font-size:9px;letter-spacing:.06em}
+    .scroll-cue{align-items:center;bottom:34px;color:rgba(255,255,255,.55);display:flex;font-size:8px;gap:12px;left:50%;letter-spacing:.2em;position:absolute;text-transform:uppercase;transform:translateX(-50%)}.scroll-cue i{border:1px solid rgba(255,255,255,.35);border-radius:20px;display:inline-block;height:31px;position:relative;width:18px}.scroll-cue i:after{background:var(--gold-bright);border-radius:50%;content:"";height:3px;left:6px;position:absolute;top:6px;width:3px}
+
+    /* Principles */
+    .split-heading{display:grid;gap:20px;grid-template-columns:.34fr 1fr;margin-bottom:65px}.principle-grid{border-bottom:1px solid var(--line);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr)}.principle-grid article{padding:42px 38px 44px 0}.principle-grid article+article{border-left:1px solid var(--line);padding-left:38px}.principle-grid article>span{color:var(--gold-dark);font-family:Georgia,serif;font-size:13px}.principle-grid h3{font-family:Georgia,serif;font-size:27px;font-weight:400;margin:30px 0 14px}.principle-grid p,.heading-copy,.note p{color:var(--muted);font-size:14px;line-height:1.76;margin:0}
+
+    /* Assets */
+    .asset-section{background:var(--paper)}.heading-row{align-items:end;display:flex;justify-content:space-between;margin-bottom:64px}.heading-row>div:first-child{flex:1}.heading-copy{border-left:1px solid rgba(146,112,30,.34);margin:0 0 7px 40px;max-width:420px;padding-left:30px}.category-grid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}.category-card{background:#fff;box-shadow:0 14px 35px rgba(6,16,29,.06);overflow:hidden}.category-image{aspect-ratio:4/4.5;overflow:hidden;position:relative}.category-image:after{background:linear-gradient(to top,rgba(6,16,29,.55),transparent 55%);content:"";inset:0;position:absolute}.category-image img{height:100%;object-fit:cover;transition:transform .7s;width:100%}.category-card:hover img{transform:scale(1.045)}.category-image>span{align-items:center;background:rgba(6,16,29,.78);border:1px solid rgba(212,175,55,.62);bottom:20px;color:var(--gold-bright);display:flex;font-family:Georgia,serif;height:46px;justify-content:center;left:20px;position:absolute;width:46px;z-index:2}.category-content{padding:28px}.category-content>p{color:var(--gold-dark);font-size:8px;letter-spacing:.17em;margin:0 0 14px;text-transform:uppercase}.category-content h3{font-family:Georgia,serif;font-size:clamp(24px,2.2vw,34px);font-weight:400;letter-spacing:-.025em;line-height:1.12;margin:0 0 22px}.category-content>div{align-items:end;border-top:1px solid var(--line);display:flex;gap:16px;justify-content:space-between;padding-top:19px}.category-content>div>span{color:var(--muted);font-size:12px;line-height:1.65}.round-link{align-items:center;border:1px solid rgba(146,112,30,.45);color:var(--gold-dark);display:flex;flex:0 0 auto;height:38px;justify-content:center;transition:.18s;width:38px}.round-link:hover{background:var(--gold);color:var(--navy-950)}
+
+    /* Portfolio */
+    .portfolio-heading{align-items:start}.portfolio-heading .heading{max-width:800px}.note{border-left:1px solid rgba(146,112,30,.35);margin:18px 0 0 50px;max-width:370px;padding-left:25px}.note span{color:var(--gold-dark);display:block;font-size:9px;letter-spacing:.17em;margin-bottom:10px;text-transform:uppercase}.deal-grid{display:grid;gap:24px;grid-template-columns:repeat(2,1fr)}.deal-card{background:#fff;border:1px solid rgba(18,28,39,.1);overflow:hidden}.deal-image{aspect-ratio:16/10;overflow:hidden;position:relative}.deal-image:after{background:linear-gradient(to top,rgba(6,16,29,.48),transparent 50%);content:"";inset:0;position:absolute}.deal-image img{height:100%;object-fit:cover;transition:transform .65s;width:100%}.deal-card:hover img{transform:scale(1.035)}.deal-image span{background:rgba(6,16,29,.85);border-left:2px solid var(--gold);bottom:18px;color:#fff;font-size:8px;left:18px;letter-spacing:.17em;padding:10px 13px;position:absolute;text-transform:uppercase;z-index:2}.deal-content{display:grid;gap:18px 25px;grid-template-columns:1fr auto;padding:28px}.deal-content p{color:var(--gold-dark);font-size:8px;letter-spacing:.16em;margin:0 0 8px;text-transform:uppercase}.deal-content h3{font-family:Georgia,serif;font-size:clamp(25px,2.5vw,37px);font-weight:400;letter-spacing:-.03em;margin:0}.deal-content>strong{font-family:Georgia,serif;font-size:25px;font-weight:400}.deal-footer{align-items:center;border-top:1px solid var(--line);display:flex;grid-column:1/-1;justify-content:space-between;padding-top:18px}.deal-footer>span{color:var(--muted);font-size:10px}.deal-footer button{background:transparent;border:0;color:var(--ink);cursor:pointer;font-size:9px;font-weight:700;letter-spacing:.13em;padding:8px 0;text-transform:uppercase}.deal-footer button i{color:var(--gold-dark);font-style:normal;margin-left:9px}
+
+    /* Process */
+    .process{background:var(--navy-950);color:#fff;overflow:hidden;position:relative}.process:after{border:1px solid rgba(212,175,55,.12);border-radius:50%;content:"";height:650px;position:absolute;right:-170px;top:-95px;width:650px}.process>.shell{position:relative;z-index:2}.process .kicker{color:var(--gold-bright)}.process-intro{color:rgba(255,255,255,.57);font-size:15px;line-height:1.75;margin:24px 0 0;max-width:650px}.step-grid{border-top:1px solid rgba(255,255,255,.15)}.step-grid article{align-items:start;border-bottom:1px solid rgba(255,255,255,.15);display:grid;gap:30px;grid-template-columns:.34fr 1fr;padding:40px 0}.step-grid article>span{color:var(--gold-bright);font-family:Georgia,serif;font-size:14px}.step-grid article>div{display:grid;gap:35px;grid-template-columns:.46fr 1fr}.step-grid h3{font-family:Georgia,serif;font-size:31px;font-weight:400;margin:0}.step-grid p{color:rgba(255,255,255,.57);font-size:13px;line-height:1.75;margin:0}.process-cta{align-items:center;display:flex;justify-content:space-between;padding-top:42px}.process-cta>p{color:rgba(255,255,255,.55);font-size:12px;margin:0}.text-link{border-bottom:1px solid rgba(212,175,55,.4);color:var(--gold-bright);display:inline-flex;font-size:10px;font-weight:700;gap:18px;letter-spacing:.13em;padding-bottom:7px;text-transform:uppercase}
+
+    /* Forms */
+    .connect{background:var(--paper)}.connect-grid{align-items:start;display:grid;gap:clamp(45px,7vw,100px);grid-template-columns:.75fr 1.25fr}.connect-intro{position:sticky;top:40px}.connect-intro>p:not(.kicker){color:var(--muted);font-size:15px;line-height:1.78;margin:25px 0 38px;max-width:510px}.confidentiality{align-items:start;border-top:1px solid var(--line);display:flex;gap:18px;max-width:510px;padding-top:25px}.confidentiality>b{color:var(--gold-dark);font-size:29px}.confidentiality strong{font-family:Georgia,serif;font-size:18px;font-weight:400}.confidentiality p{color:var(--muted);font-size:11px;line-height:1.65;margin:8px 0 0}.intake{background:#fff;box-shadow:0 20px 55px rgba(6,16,29,.08)}.form-tabs{display:grid;grid-template-columns:repeat(2,1fr)}.form-tabs button{background:var(--ivory);border:0;border-bottom:1px solid var(--line);color:var(--muted);cursor:pointer;font-size:9px;font-weight:700;letter-spacing:.12em;min-height:68px;padding:0 22px;text-align:left;text-transform:uppercase}.form-tabs button+button{border-left:1px solid var(--line)}.form-tabs button span{color:var(--gold-dark);margin-right:12px}.form-tabs button.active{background:#fff;border-bottom-color:#fff;color:var(--ink);box-shadow:inset 0 3px 0 var(--gold)}.form-panel{display:none}.form-panel.active{display:block}.intake-form{padding:clamp(28px,4vw,50px)}.form-heading{border-bottom:1px solid var(--line);margin-bottom:30px;padding-bottom:24px}.form-heading p{color:var(--gold-dark);font-size:8px;letter-spacing:.17em;margin:0 0 9px;text-transform:uppercase}.form-heading h3{font-family:Georgia,serif;font-size:30px;font-weight:400;margin:0}.field-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}.intake-form label{display:block;margin-bottom:19px}.intake-form label>span:first-child{color:#4d5965;display:block;font-size:8px;font-weight:700;letter-spacing:.14em;margin-bottom:9px;text-transform:uppercase}.intake-form input,.intake-form select,.intake-form textarea{background:#faf9f6;border:1px solid rgba(18,28,39,.16);border-radius:0;color:var(--ink);outline:none;padding:15px 16px;transition:.18s;width:100%}.intake-form input,.intake-form select{min-height:50px}.intake-form textarea{line-height:1.55;resize:vertical}.intake-form input:focus,.intake-form select:focus,.intake-form textarea:focus{border-color:var(--gold-dark);box-shadow:0 0 0 3px rgba(212,175,55,.12)}.intake-form input::placeholder,.intake-form textarea::placeholder{color:#9ba2a8;font-size:12px}.consent{align-items:flex-start;display:flex!important;gap:12px;margin:5px 0 24px!important}.consent input{accent-color:var(--gold-dark);flex:0 0 auto;height:16px;min-height:0;margin:2px 0 0;padding:0;width:16px}.consent span{color:var(--muted)!important;font-size:10px!important;font-weight:400!important;letter-spacing:0!important;line-height:1.6;margin:0!important;text-transform:none!important}.submit{align-items:center;background:var(--navy-900);border:0;color:#fff;cursor:pointer;display:flex;font-size:9px;font-weight:700;justify-content:space-between;letter-spacing:.15em;min-height:58px;padding:0 22px;text-transform:uppercase;width:100%}.submit:hover{background:#142c45}.submit:disabled{cursor:wait;opacity:.7}.submit span{color:var(--gold-bright);font-size:16px}.status{font-size:11px;line-height:1.6;min-height:31px;padding-top:13px}.status.success{color:#476b4d}.status.error{color:#a0443c}.honey{display:none!important}
+
+    /* Closing and footer */
+    .closing{background:linear-gradient(rgba(6,16,29,.9),rgba(6,16,29,.94)),url('https://images.unsplash.com/photo-1776934121312-e256a6339bc1?auto=format&fit=crop&fm=jpg&q=70&w=2000') center/cover;color:#fff;text-align:center}.closing .shell{padding-bottom:125px;padding-top:125px}.closing p{color:var(--gold-bright);font-size:9px;letter-spacing:.22em;margin:0 0 24px;text-transform:uppercase}.closing h2{font-family:Georgia,serif;font-size:clamp(50px,6.5vw,94px);font-weight:400;letter-spacing:-.05em;line-height:.95;margin:0 0 42px}.closing h2 em{color:var(--gold-bright)}
+    footer{background:#030b14;color:#fff}.footer-main{display:grid;gap:50px;grid-template-columns:.8fr 1fr .9fr;padding-bottom:68px;padding-top:80px}.footer-brand{align-self:start}.footer-links{display:grid;grid-template-columns:repeat(2,1fr)}.footer-links>div{display:flex;flex-direction:column;gap:11px}.footer-links p{color:var(--gold-bright);font-size:8px;letter-spacing:.18em;margin:0 0 8px;text-transform:uppercase}.footer-links a{color:rgba(255,255,255,.62);font-size:11px}.footer-statement>p{color:rgba(255,255,255,.58);font-family:Georgia,serif;font-size:19px;line-height:1.55;margin:0 0 26px}.legal{border-top:1px solid rgba(255,255,255,.1);padding-bottom:32px;padding-top:28px}.legal>p{color:rgba(255,255,255,.35);font-size:8px;line-height:1.7;margin:0 0 24px;max-width:1180px}.legal>div{color:rgba(255,255,255,.35);display:flex;font-size:8px;justify-content:space-between;letter-spacing:.08em;text-transform:uppercase}
+
+    /* Modal */
+    dialog{background:transparent;border:0;max-height:calc(100vh - 48px);max-width:1040px;padding:0;width:calc(100% - 48px)}dialog::backdrop{background:rgba(2,8,15,.86)}.modal{background:var(--ivory);display:grid;grid-template-columns:.9fr 1.1fr;max-height:calc(100vh - 48px);overflow:auto;position:relative}.modal-close{align-items:center;background:var(--navy-950);border:0;color:#fff;cursor:pointer;display:flex;font-family:Georgia,serif;font-size:30px;height:48px;justify-content:center;position:absolute;right:0;top:0;width:48px;z-index:2}.modal-image{min-height:570px;overflow:hidden;position:relative}.modal-image img{height:100%;object-fit:cover;width:100%}.modal-image span{background:rgba(6,16,29,.9);border-left:2px solid var(--gold);bottom:24px;color:#fff;font-size:8px;left:24px;letter-spacing:.17em;padding:10px 14px;position:absolute;text-transform:uppercase}.modal-content{align-self:center;padding:55px}.modal-content .kicker{margin-top:0}.modal-title{align-items:start;border-bottom:1px solid var(--line);display:flex;gap:20px;justify-content:space-between;margin-bottom:25px;padding-bottom:25px}.modal-title h2{font-family:Georgia,serif;font-size:42px;font-weight:400;letter-spacing:-.04em;line-height:1;margin:0}.modal-title strong{font-family:Georgia,serif;font-size:24px;font-weight:400}.modal-content>p:not(.kicker){color:var(--muted);font-size:13px;line-height:1.75}.modal-content ul{list-style:none;margin:24px 0;padding:0}.modal-content li{border-top:1px solid var(--line);font-size:11px;padding:12px 0 12px 20px;position:relative}.modal-content li:before{color:var(--gold-dark);content:"◇";left:0;position:absolute}.modal-disclaimer{background:#e9e4d9;color:#6b6353;font-size:9px;line-height:1.6;margin:24px 0;padding:12px 14px}
+
+    @media(max-width:1000px){.hero{grid-template-columns:1fr}.hero-aside{display:none}.connect-grid{grid-template-columns:1fr}.connect-intro{position:static}.footer-main{grid-template-columns:.65fr 1fr}.footer-statement{grid-column:1/-1;max-width:600px}}
+    @media(max-width:860px){.site-header{height:78px}.menu-button{display:grid;gap:6px;padding:12px 0 12px 12px;position:relative;z-index:2}.nav-links{align-items:flex-start;background:var(--navy-950);display:none;flex-direction:column;gap:9px;left:0;padding:100px 25px 35px;position:absolute;right:0;top:0}.nav-links.open{display:flex}.nav-cta{margin-top:8px}.hero{min-height:820px;padding-top:150px}.hero:before{background:linear-gradient(90deg,rgba(4,12,23,.97),rgba(4,12,23,.72))}.split-heading{grid-template-columns:1fr}.principle-grid,.category-grid{grid-template-columns:1fr}.principle-grid article+article{border-left:0;border-top:1px solid var(--line);padding-left:0}.category-image{aspect-ratio:16/9}.heading-row{align-items:start;flex-direction:column}.heading-copy,.note{margin:30px 0 0}.deal-grid{grid-template-columns:1fr}.step-grid article{grid-template-columns:80px 1fr}.step-grid article>div{grid-template-columns:1fr}.modal{grid-template-columns:1fr}.modal-image{min-height:280px}.modal-content{padding:38px}}
+    @media(max-width:560px){.brand-name{display:none}.hero{min-height:780px;padding-bottom:78px}.hero h1{font-size:clamp(48px,15vw,66px)}.hero-copy{font-size:15px}.hero-actions{align-items:stretch;flex-direction:column}.hero .button{width:100%}.scroll-cue{display:none}.shell{padding-bottom:82px;padding-top:82px}.heading{font-size:41px}.category-image{aspect-ratio:4/3.5}.deal-content{grid-template-columns:1fr}.deal-content>strong{font-size:22px}.deal-footer{align-items:flex-start;flex-direction:column;gap:12px;grid-column:1}.step-grid article{gap:12px;grid-template-columns:42px 1fr;padding:30px 0}.process-cta{align-items:flex-start;flex-direction:column;gap:22px}.form-tabs button{min-height:75px;padding:10px 14px}.form-tabs button span{display:block;margin:0 0 5px}.intake-form{padding:28px 20px}.field-grid{gap:0;grid-template-columns:1fr}.closing h2{font-size:49px}.footer-main{grid-template-columns:1fr}.footer-links{gap:30px}.footer-statement{grid-column:auto}.legal>div{flex-direction:column;gap:9px}dialog{width:calc(100% - 20px)}.modal-content{padding:30px 22px}.modal-title{flex-direction:column}.modal-title h2{font-size:36px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Swift Deal Solutions home">
+      <span class="brand-mark" aria-hidden="true"><span>S</span><span>D</span></span>
+      <span class="brand-name"><strong>Swift Deal</strong><small>Solutions</small></span>
+    </a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+      <a href="#expertise">Expertise</a><a href="#portfolio">Portfolio</a><a href="#process">Process</a><a class="nav-cta" href="#connect">Private inquiry</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> Private transactions · Select assets</p>
+        <h1>Discreet high-ticket <em>asset sourcing &amp; placement.</em></h1>
+        <p class="hero-copy">Private off-market contract solutions for distinctive real estate, rare motorcars, and luxury marine assets—handled with speed, clarity, and discretion.</p>
+        <div class="hero-actions"><a class="button button-gold form-jump" data-form="seller" href="#connect">Submit an asset <span>↗</span></a><a class="button button-ghost form-jump" data-form="buyer" href="#connect">Access private inventory</a></div>
+      </div>
+      <aside class="hero-aside" aria-label="Focused mandates"><p>Focused mandates</p><div><strong>Real estate</strong><span>Estates · Multifamily · Commercial</span></div><div><strong>Automotive</strong><span>Rare · Collector · Performance</span></div><div><strong>Marine</strong><span>Yachts · Powerboats · Specialty craft</span></div></aside>
+      <a class="scroll-cue" href="#expertise"><span>Explore</span><i></i></a>
+    </section>
+
+    <section class="shell" id="expertise">
+      <div class="split-heading"><p class="kicker">The private-market advantage</p><h2 class="heading">Designed for assets that deserve a more considered approach.</h2></div>
+      <div class="principle-grid">
+        <article><span>01</span><h3>Speed &amp; liquidity</h3><p>Direct negotiations, defined timelines, and an execution path built around serious counterparties.</p></article>
+        <article><span>02</span><h3>Clear deal structure</h3><p>Principal, option, and assignment roles are disclosed in writing, with agreed pricing and terms.</p></article>
+        <article><span>03</span><h3>Absolute discretion</h3><p>Selective outreach without public listing campaigns, open houses, or unnecessary market exposure.</p></article>
+      </div>
+    </section>
+
+    <section class="asset-section"><div class="shell">
+      <div class="heading-row"><div><p class="kicker">Asset focus</p><h2 class="heading">One private network.<br>Three distinct markets.</h2></div><p class="heading-copy">We focus on assets where presentation, counterpart fit, and quiet execution matter as much as price.</p></div>
+      <div class="category-grid">
+        <article class="category-card"><div class="category-image"><img src="https://images.unsplash.com/photo-1783936535299-6ff0f8bbd1d0?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Luxury estate with pool" loading="lazy"><span>01</span></div><div class="category-content"><p>Estates · Multifamily · Commercial</p><h3>Luxury &amp; Commercial Real Estate</h3><div><span>Architecturally distinctive estates, multifamily communities, and select commercial opportunities positioned for private acquisition.</span><a class="round-link" href="#connect" aria-label="Discuss real estate">↗</a></div></div></article>
+        <article class="category-card"><div class="category-image"><img src="https://images.unsplash.com/photo-1768352725353-d498db8a1722?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Rare performance automobile" loading="lazy"><span>02</span></div><div class="category-content"><p>Collector · Limited run · Bespoke</p><h3>Rare &amp; Exotic Automobiles</h3><div><span>Collector-grade, limited-production, and bespoke performance vehicles matched with qualified enthusiasts and private buyers.</span><a class="round-link" href="#connect" aria-label="Discuss automobiles">↗</a></div></div></article>
+        <article class="category-card"><div class="category-image"><img src="https://images.unsplash.com/photo-1776934121312-e256a6339bc1?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Luxury yachts in a marina" loading="lazy"><span>03</span></div><div class="category-content"><p>Motor yachts · Powerboats · Specialty</p><h3>Luxury Marine &amp; Yachts</h3><div><span>Significant powerboats, motor yachts, and specialty craft presented discreetly to a focused network of marine buyers.</span><a class="round-link" href="#connect" aria-label="Discuss yachts">↗</a></div></div></article>
+      </div>
+    </div></section>
+
+    <section class="shell" id="portfolio">
+      <div class="heading-row portfolio-heading"><div><p class="kicker">Representative profiles</p><h2 class="heading">What a private placement can look like.</h2></div><div class="note"><span>Presentation examples</span><p>These profiles are illustrative, not claims of completed transactions. Replace them with verified results before using them as past-performance material.</p></div></div>
+      <div class="deal-grid">
+        <article class="deal-card"><div class="deal-image"><img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Modern desert estate" loading="lazy"><span>Residential</span></div><div class="deal-content"><div><p>Sedona, Arizona</p><h3>The Sedona Estate</h3></div><strong>$3.2M</strong><div class="deal-footer"><span>Illustrative · 11-day assignment</span><button class="deal-button" data-deal="0">View profile <i>↗</i></button></div></div></article>
+        <article class="deal-card"><div class="deal-image"><img src="https://images.unsplash.com/photo-1764722870653-e59e737d1d30?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Modern apartment building" loading="lazy"><span>Commercial</span></div><div class="deal-content"><div><p>Southwest market</p><h3>Metro View Apartments</h3></div><strong>$6.8M</strong><div class="deal-footer"><span>Illustrative · Private transfer</span><button class="deal-button" data-deal="1">View profile <i>↗</i></button></div></div></article>
+        <article class="deal-card"><div class="deal-image"><img src="https://images.unsplash.com/photo-1550955328-619e97a81ccf?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Porsche collector vehicle" loading="lazy"><span>Automotive</span></div><div class="deal-content"><div><p>Private U.S. placement</p><h3>Porsche 911 GT3 RS</h3></div><strong>$340K</strong><div class="deal-footer"><span>Illustrative · Collector match</span><button class="deal-button" data-deal="2">View profile <i>↗</i></button></div></div></article>
+        <article class="deal-card"><div class="deal-image"><img src="https://images.unsplash.com/photo-1777684862302-7c0973a30095?auto=format&fit=crop&fm=jpg&q=78&w=1800" alt="Luxury motor yacht" loading="lazy"><span>Marine</span></div><div class="deal-content"><div><p>U.S. coastal market</p><h3>55′ Sunseeker Yacht</h3></div><strong>$1.45M</strong><div class="deal-footer"><span>Illustrative · Contract placement</span><button class="deal-button" data-deal="3">View profile <i>↗</i></button></div></div></article>
+      </div>
+    </section>
+
+    <section class="process" id="process"><div class="shell">
+      <div class="split-heading"><p class="kicker">How it works</p><div><h2 class="heading">A disciplined route from private brief to closing.</h2><p class="process-intro">Every engagement starts with the asset and the owner’s priorities—not a one-size-fits-all sales process.</p></div></div>
+      <div class="step-grid">
+        <article><span>01</span><div><h3>Evaluate &amp; structure</h3><p>We review the asset, ownership documentation, pricing expectations, and timing—then define a clear acquisition, option, or assignment structure.</p></div></article>
+        <article><span>02</span><div><h3>Allocate privately</h3><p>The opportunity is presented selectively to relevant, qualified counterparties without broad public advertising or unnecessary exposure.</p></div></article>
+        <article><span>03</span><div><h3>Coordinate execution</h3><p>Diligence, assignment disclosures, title or escrow, and closing milestones are coordinated through the appropriate licensed professionals.</p></div></article>
+      </div>
+      <div class="process-cta"><p>Have a time-sensitive opportunity?</p><a class="text-link" href="#connect">Start a confidential conversation <span>↗</span></a></div>
+    </div></section>
+
+    <section class="connect" id="connect"><div class="shell connect-grid">
+      <div class="connect-intro"><p class="kicker">Private inquiry</p><h2 class="heading">Tell us what you are bringing to the table.</h2><p>Share the essential details. We review each inquiry for fit and respond directly when the mandate aligns with our focus.</p><div class="confidentiality"><b>◇</b><div><strong>Discretion from first contact</strong><p>Inquiry details are used to evaluate a potential transaction and are not published as a public listing.</p></div></div></div>
+      <div class="intake">
+        <div class="form-tabs" role="tablist"><button class="active" type="button" role="tab" aria-selected="true" data-tab="seller"><span>01</span> Submit an asset</button><button type="button" role="tab" aria-selected="false" data-tab="buyer"><span>02</span> Join buyer network</button></div>
+        <div class="form-panel active" id="sellerPanel"><form class="intake-form" data-type="Asset submission">
+          <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="Swift Deal Solutions — new asset submission">
+          <div class="form-heading"><p>Asset owner / representative</p><h3>Asset evaluation brief</h3></div>
+          <div class="field-grid"><label><span>Full name *</span><input name="name" required autocomplete="name" placeholder="Your full name"></label><label><span>Email address *</span><input name="email" type="email" required autocomplete="email" placeholder="name@company.com"></label></div>
+          <div class="field-grid"><label><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" placeholder="+1 (000) 000-0000"></label><label><span>Relationship to asset</span><input name="organization" placeholder="Owner, representative, advisor"></label></div>
+          <div class="field-grid"><label><span>Asset class *</span><select name="asset_class" required><option value="" selected disabled>Select asset class</option><option>Luxury residential real estate</option><option>Commercial / multifamily real estate</option><option>Rare / exotic automobile</option><option>Luxury marine / yacht</option></select></label><label><span>Asset location *</span><input name="asset_location" required placeholder="City, state or country"></label></div>
+          <div class="field-grid"><label><span>Estimated value *</span><select name="estimated_value" required><option value="" selected disabled>Select range</option><option>$100K–$250K</option><option>$250K–$1M</option><option>$1M–$5M</option><option>$5M–$15M</option><option>$15M+</option></select></label><label><span>Preferred timeline *</span><select name="timeline" required><option value="" selected disabled>Select timeline</option><option>Under 30 days</option><option>30–60 days</option><option>60–90 days</option><option>Flexible / exploratory</option></select></label></div>
+          <label><span>Asset overview *</span><textarea name="details" required rows="4" placeholder="Describe the asset, pricing expectations, condition, current marketing status, and any timing considerations."></textarea></label>
+          <label class="consent"><input type="checkbox" name="consent" required><span>I agree to be contacted about this inquiry and understand that submitting this form does not create an agency, brokerage, fiduciary, or purchase relationship.</span></label>
+          <button class="submit" type="submit">Request private evaluation <span>↗</span></button><div class="status" aria-live="polite"></div>
+        </form></div>
+        <div class="form-panel" id="buyerPanel"><form class="intake-form" data-type="Buyer network application">
+          <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="Swift Deal Solutions — new buyer application">
+          <div class="form-heading"><p>Principal buyer / acquisition team</p><h3>Private inventory access</h3></div>
+          <div class="field-grid"><label><span>Full name *</span><input name="name" required autocomplete="name" placeholder="Your full name"></label><label><span>Email address *</span><input name="email" type="email" required autocomplete="email" placeholder="name@company.com"></label></div>
+          <div class="field-grid"><label><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" placeholder="+1 (000) 000-0000"></label><label><span>Company / family office</span><input name="organization" placeholder="Optional"></label></div>
+          <div class="field-grid"><label><span>Primary asset class *</span><select name="target_asset_class" required><option value="" selected disabled>Select asset class</option><option>Luxury residential real estate</option><option>Commercial / multifamily real estate</option><option>Rare / exotic automobiles</option><option>Luxury marine / yachts</option><option>Multiple asset classes</option></select></label><label><span>Liquidity range *</span><select name="liquidity_range" required><option value="" selected disabled>Select range</option><option>$100K–$500K</option><option>$500K–$2M</option><option>$2M–$10M</option><option>$10M–$25M</option><option>$25M+</option></select></label></div>
+          <div class="field-grid"><label><span>Target geography</span><input name="target_geography" placeholder="Markets or regions"></label><label><span>Purchase timeline *</span><select name="purchase_timeline" required><option value="" selected disabled>Select timeline</option><option>Actively acquiring now</option><option>Within 90 days</option><option>Within 6 months</option><option>Monitoring opportunities</option></select></label></div>
+          <label><span>Acquisition criteria *</span><textarea name="criteria" required rows="4" placeholder="Describe your preferred assets, price range, condition, geography, and decision process."></textarea></label>
+          <label class="consent"><input type="checkbox" name="consent" required><span>I agree to be contacted about this inquiry and understand that submitting this form does not create an agency, brokerage, fiduciary, or purchase relationship.</span></label>
+          <button class="submit" type="submit">Apply for inventory access <span>↗</span></button><div class="status" aria-live="polite"></div>
+        </form></div>
+      </div>
+    </div></section>
+
+    <section class="closing"><div class="shell"><p>Private capital. Distinctive assets.</p><h2>Move with clarity.<br><em>Move with discretion.</em></h2><a class="button button-gold" href="#connect">Open a private inquiry <span>↗</span></a></div></section>
+  </main>
+
+  <footer><div class="footer-main shell">
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><span>S</span><span>D</span></span><span class="brand-name"><strong>Swift Deal</strong><small>Solutions</small></span></a>
+    <div class="footer-links"><div><p>Navigate</p><a href="#expertise">Expertise</a><a href="#portfolio">Profiles</a><a href="#process">Process</a></div><div><p>Connect</p><a class="form-jump" data-form="seller" href="#connect">Submit an asset</a><a class="form-jump" data-form="buyer" href="#connect">Buyer network</a><a href="mailto:realjjemail@gmail.com">Email directly</a></div></div>
+    <div class="footer-statement"><p>Private asset sourcing and contractual placement for select real estate, automotive, and marine opportunities.</p><a class="text-link" href="mailto:realjjemail@gmail.com">realjjemail@gmail.com <span>↗</span></a></div>
+  </div><div class="legal shell"><p>Swift Deal Solutions may participate as a principal, option holder, contract assignee, or transaction coordinator, as disclosed in the applicable written agreement. Services and permissible transaction structures vary by jurisdiction. Nothing on this site is legal, tax, financial, investment, or brokerage advice, an offer of securities, or a guarantee of closing. Real estate, vehicle, vessel, escrow, title, and brokerage activities may require licensed third parties. Consult qualified local counsel and other professionals before entering a transaction.</p><div><span>© <span id="year"></span> Swift Deal Solutions</span><span>Private transactions · United States</span></div></div></footer>
+
+  <dialog id="dealDialog" aria-labelledby="modalTitle"><div class="modal"><button class="modal-close" type="button" aria-label="Close profile">×</button><div class="modal-image"><img id="modalImage" alt=""><span>Illustrative profile</span></div><div class="modal-content"><p class="kicker" id="modalKicker"></p><div class="modal-title"><h2 id="modalTitle"></h2><strong id="modalValue"></strong></div><p id="modalSummary"></p><ul id="modalFacts"></ul><div class="modal-disclaimer">Presentation example only. This is not a claim of a completed Swift Deal Solutions transaction.</div><a class="button button-gold form-jump" data-form="buyer" href="#connect">Discuss similar opportunities <span>↗</span></a></div></div></dialog>
+
+  <script>
+    const deals = [
+      {assetClass:'Residential',location:'Sedona, Arizona',title:'The Sedona Estate',value:'$3.2M',image:'https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&fm=jpg&q=78&w=1800',summary:'A sample profile showing how an architecturally distinctive estate could be positioned under a private acquisition agreement, circulated selectively, and moved to escrow without a public campaign.',facts:['Private residential','Agreed net pricing','Targeted buyer allocation']},
+      {assetClass:'Commercial',location:'Southwest market',title:'Metro View Apartments',value:'$6.8M',image:'https://images.unsplash.com/photo-1764722870653-e59e737d1d30?auto=format&fit=crop&fm=jpg&q=78&w=1800',summary:'A representative multifamily scenario structured around clean underwriting, a defined diligence window, and direct presentation to a small group of capable operators.',facts:['32-unit complex','Qualified operator pool','Structured diligence']},
+      {assetClass:'Automotive',location:'Private U.S. placement',title:'Porsche 911 GT3 RS',value:'$340K',image:'https://images.unsplash.com/photo-1550955328-619e97a81ccf?auto=format&fit=crop&fm=jpg&q=78&w=1800',summary:'A collector-vehicle profile built around verified specification, documentation, condition, and discreet matching with an enthusiast able to transact on the agreed timeline.',facts:['Collector specification','Documentation review','Private buyer match']},
+      {assetClass:'Marine',location:'U.S. coastal market',title:'55′ Sunseeker Yacht',value:'$1.45M',image:'https://images.unsplash.com/photo-1777684862302-7c0973a30095?auto=format&fit=crop&fm=jpg&q=78&w=1800',summary:'A marine placement example centered on vessel records, survey coordination, clear contractual roles, and focused outreach to financially capable buyers.',facts:['55-foot motor yacht','Survey coordination','Escrow-led settlement']}
+    ];
+
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+
+    function activateForm(type) {
+      document.querySelectorAll('.form-tabs button').forEach(button => {
+        const active = button.dataset.tab === type;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', String(active));
+      });
+      document.getElementById('sellerPanel').classList.toggle('active', type === 'seller');
+      document.getElementById('buyerPanel').classList.toggle('active', type === 'buyer');
+    }
+    document.querySelectorAll('.form-tabs button').forEach(button => button.addEventListener('click', () => activateForm(button.dataset.tab)));
+    document.querySelectorAll('.form-jump').forEach(link => link.addEventListener('click', () => {
+      activateForm(link.dataset.form || 'seller');
+      if (dealDialog.open) dealDialog.close();
+    }));
+
+    const dealDialog = document.getElementById('dealDialog');
+    const modalImage = document.getElementById('modalImage');
+    const modalKicker = document.getElementById('modalKicker');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalValue = document.getElementById('modalValue');
+    const modalSummary = document.getElementById('modalSummary');
+    const modalFacts = document.getElementById('modalFacts');
+    document.querySelectorAll('.deal-button').forEach(button => button.addEventListener('click', () => {
+      const deal = deals[Number(button.dataset.deal)];
+      modalImage.src = deal.image; modalImage.alt = deal.title;
+      modalKicker.textContent = deal.assetClass + ' · ' + deal.location;
+      modalTitle.textContent = deal.title; modalValue.textContent = deal.value;
+      modalSummary.textContent = deal.summary;
+      modalFacts.innerHTML = deal.facts.map(fact => '<li>' + fact + '</li>').join('');
+      dealDialog.showModal(); document.body.classList.add('modal-open');
+    }));
+    document.querySelector('.modal-close').addEventListener('click', () => dealDialog.close());
+    dealDialog.addEventListener('click', event => { if (event.target === dealDialog) dealDialog.close(); });
+    dealDialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
+
+    document.querySelectorAll('.intake-form').forEach(form => form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = form.querySelector('.submit');
+      const status = form.querySelector('.status');
+      const original = button.innerHTML;
+      button.disabled = true; button.textContent = 'Sending…'; status.textContent = ''; status.className = 'status';
+      const payload = new FormData(form);
+      payload.append('inquiry_type', form.dataset.type);
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/realjjemail@gmail.com', {method:'POST',headers:{Accept:'application/json'},body:payload});
+        if (!response.ok) throw new Error('Submission failed');
+        form.reset(); status.textContent = 'Thank you. Your inquiry has been received for private review.'; status.classList.add('success');
+      } catch (error) {
+        status.textContent = 'The form could not send. Please try again, or email realjjemail@gmail.com.'; status.classList.add('error');
+      } finally {
+        button.disabled = false; button.innerHTML = original;
+      }
+    }));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
