@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="14" fill="#06101D"/>
+  <rect x="14" y="14" width="36" height="36" transform="rotate(45 32 32)" stroke="#D4AF37" stroke-width="2"/>
+  <text x="22" y="30" fill="#E6CA6D" font-family="Georgia" font-size="13">S</text>
+  <text x="35" y="43" fill="#E6CA6D" font-family="Georgia" font-size="13">D</text>
+</svg>
