@@ -5,7 +5,7 @@ import { useState } from "react";
 import { representativeProfiles } from "@/lib/content";
 
 export function RepresentativeProfiles() {
-  const [activeId, setActiveId] = useState(representativeProfiles[0].id);
+  const [activeId, setActiveId] = useState<(typeof representativeProfiles)[number]["id"]>(representativeProfiles[0].id);
   const active = representativeProfiles.find((profile) => profile.id === activeId) ?? representativeProfiles[0];
 
   return (
