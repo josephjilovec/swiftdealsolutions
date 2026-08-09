@@ -48,6 +48,25 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <style>{`
+          @media (min-width: 901px) {
+            .site-header {
+              display: grid;
+              grid-template-columns: minmax(0, 1fr) auto;
+              column-gap: clamp(34px, 5vw, 84px);
+            }
+            .site-header .site-nav {
+              grid-column: 1;
+              grid-row: 1;
+              justify-self: start;
+            }
+            .site-header .brand {
+              grid-column: 2;
+              grid-row: 1;
+              justify-self: end;
+            }
+          }
+        `}</style>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
         <main id="main-content">{children}</main>
