@@ -23,7 +23,11 @@ export async function POST(request: Request) {
 
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim();
-    const mode = body.mode === "buyer" ? "Buyer network application" : "Asset submission";
+    const mode = body.mode === "buyer"
+      ? "Buyer network application"
+      : body.mode === "privacy"
+        ? "Alias & Alibi privacy package request"
+        : "Asset submission";
 
     if (!name || !email || !emailPattern.test(email)) {
       return NextResponse.json({ error: "Please provide a valid name and email address." }, { status: 400 });
