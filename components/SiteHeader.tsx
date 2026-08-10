@@ -10,7 +10,7 @@ const nav = [
   { href: "/process", label: "Transactions" },
   { href: "/opportunities", label: "Assets" },
   { href: "/privacy", label: "Privacy" },
-  { href: "/#about", label: "About" },
+  { href: "/#principles", label: "Principles" },
   { href: "/submit", label: "Contact" }
 ];
 

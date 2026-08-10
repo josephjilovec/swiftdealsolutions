@@ -93,7 +93,7 @@ export default function HomePage() {
           <div className="alias-noir" aria-hidden="true"><div className="alias-noir-image" /><div className="alias-noir-gradient" /><div className="alias-noir-mark"><span>A</span><i>&amp;</i><span>A</span></div></div>
         </section>
 
-        <section className="benefit-band" id="about">
+        <section className="benefit-band" id="principles">
           <div className="benefit-intro"><h2>Why <em>add privacy</em> to your deal?</h2><p>High-value transactions can create unnecessary exposure across records, correspondence, entities, and counterparties. Alias &amp; Alibi is about control and coordination—not concealment from lawful obligations.</p></div>
           <div className="benefit-grid">{privacyBenefits.map(([icon,title,copy]) => <article key={title}><span>{icon}</span><strong>{title}</strong><small>{copy}</small></article>)}</div>
         </section>

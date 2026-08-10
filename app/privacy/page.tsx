@@ -89,6 +89,11 @@ export default function PrivacyPage() {
         </div>
       </section>
 
+      <section className="privacy-visual-pair shell-wide" aria-label="Alias and Alibi privacy imagery">
+        <article className="privacy-visual identity"><span><small>Private identity</small><strong>Control what becomes public-facing.</strong></span></article>
+        <article className="privacy-visual property"><span><small>Property discretion</small><strong>Map the record trail before changing it.</strong></span></article>
+      </section>
+
       <section className="section section-paper">
         <div className="shell-wide">
           <div className="privacy-section-head"><p className="kicker">01 / Benefits</p><h2>What the client gets from the package.</h2></div>
@@ -166,6 +171,7 @@ export default function PrivacyPage() {
       </section>
 
       <style>{`
+        .privacy-visual-pair{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:24px;margin-bottom:72px}.privacy-visual{min-height:390px;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.35);background:#07111c center/cover no-repeat;isolation:isolate}.privacy-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,10,18,.96),rgba(3,10,18,.04) 72%);z-index:1}.privacy-visual span{position:absolute;z-index:2;left:28px;right:28px;bottom:28px}.privacy-visual small,.privacy-visual strong{display:block}.privacy-visual small{color:var(--gold-bright);font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.privacy-visual strong{max-width:560px;margin-top:7px;color:#fff;font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:400;line-height:1.05}.privacy-visual.identity{background-image:url('https://media.easy-peasy.ai/e47f4f76-4282-464f-98fe-bbb76bda5222/5aa34bd5-6e7e-4c07-9468-d64b0b21709b.png');background-position:center 22%}.privacy-visual.property{background-image:url('https://www.acresh.com/pictures/blog/large/exploring-the-most-lavish-waterfront-properties_2.webp')}@media(max-width:800px){.privacy-visual-pair{grid-template-columns:1fr;margin-bottom:48px}.privacy-visual{min-height:300px}}
         .privacy-hero { min-height: 790px; display: flex; align-items: end; padding-bottom: 88px; background: radial-gradient(circle at 80% 30%, rgba(38,88,68,.32), transparent 29%), radial-gradient(circle at 70% 55%, rgba(212,175,55,.12), transparent 24%), linear-gradient(120deg, #030a12 0%, #071423 55%, #10251d 100%); }
         .privacy-hero-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(300px,.38fr); gap: clamp(48px,8vw,120px); align-items: end; }
         .alias-lockup { display:flex; align-items:center; gap:20px; margin-bottom:42px; }
