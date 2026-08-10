@@ -66,6 +66,37 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               justify-self: end;
             }
           }
+
+          @media (min-width: 1101px) {
+            .swift-concept-main .lower-grid {
+              align-items: start !important;
+            }
+            .swift-concept-main .process-block,
+            .swift-concept-main .package-block,
+            .swift-concept-main .who-card {
+              align-self: start !important;
+              height: auto !important;
+              min-height: 0 !important;
+            }
+            .swift-concept-main .process-rail {
+              height: auto !important;
+              min-height: 0 !important;
+              align-items: start !important;
+              grid-auto-rows: auto !important;
+            }
+            .swift-concept-main .process-rail article {
+              height: auto !important;
+              min-height: 180px !important;
+              align-self: start !important;
+            }
+            .swift-concept-main .package-grid {
+              align-items: start !important;
+            }
+            .swift-concept-main .package-grid article {
+              height: auto !important;
+              align-self: start !important;
+            }
+          }
         `}</style>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
