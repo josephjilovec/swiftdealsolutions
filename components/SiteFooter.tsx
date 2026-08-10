@@ -5,9 +5,7 @@ import { site } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-<div className="jj-venture-nav" style={{margin:'0 auto 1.5rem',padding:'1rem 0',textAlign:'center',fontSize:'.78rem',letterSpacing:'.04em',opacity:.78}}><a href="https://www.josephjilovec.com/ventures" style={{color:'inherit',textDecoration:'none'}}>A Joseph Jilovec Venture</a><span aria-hidden="true" style={{margin:'0 .6rem'}}>·</span><a href="https://www.josephjilovec.com/ventures" style={{color:'inherit',textDecoration:'none',fontWeight:600}}>Explore the Venture Studio →</a></div>
-
-      <div className="footer-main shell-wide">
+<div className="footer-main shell-wide">
         <div className="footer-brand-col"><BrandMark /><p>Private asset sourcing and contractual placement for select real estate, automotive, and marine opportunities.</p></div>
         <div className="footer-links"><div><span>Navigate</span><Link href="/#expertise">Expertise</Link><Link href="/opportunities">Opportunities</Link><Link href="/process">Process</Link></div><div><span>Connect</span><Link href="/submit?mode=seller">Submit an asset</Link><Link href="/submit?mode=buyer">Buyer network</Link><a href={`mailto:${site.email}`}>Email directly</a></div></div>
         <div className="footer-action"><p>Distinctive assets deserve a more controlled path to the right counterparty.</p><Link className="text-link" href="/submit">Open a private inquiry <span>↗</span></Link></div>
@@ -16,6 +14,7 @@ export function SiteFooter() {
         <p>Swift Deal Solutions may participate as a principal, option holder, contract assignee, or transaction coordinator, as disclosed in the applicable written agreement. Services and permissible transaction structures vary by jurisdiction. Nothing on this site is legal, tax, financial, investment, or brokerage advice, an offer of securities, or a guarantee of closing. Real estate, vehicle, vessel, escrow, title, and brokerage activities may require licensed third parties. Consult qualified local counsel and other professionals before entering a transaction.</p>
         <div><span>© {new Date().getFullYear()} Swift Deal Solutions</span><span>Private transactions · United States</span></div>
       </div>
-    </footer>
+    <div className="jj-venture-nav" style={{borderTop:'1px solid rgba(255,255,255,.10)',padding:'1rem 1.25rem 1.15rem',textAlign:'center',fontSize:'.78rem',letterSpacing:'.045em'}}><a href="https://www.josephjilovec.com/ventures" style={{color:'#E7C45A',textDecoration:'none',fontWeight:700}}>A Joseph Jilovec Venture</a><span aria-hidden="true" style={{color:'#E7C45A',margin:'0 .65rem',opacity:.7}}>•</span><a href="https://www.josephjilovec.com/ventures" style={{color:'#E7C45A',textDecoration:'none',fontWeight:800}}>Explore the Venture Studio →</a></div>
+</footer>
   );
 }
