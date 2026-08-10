@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EditorialVisualLedger } from "@/components/EditorialVisualLedger";
 
 const privacyBenefits = [
   ["◉", "Reduced public exposure", "Map avoidable public-facing surfaces before acting."],
@@ -97,6 +98,8 @@ export default function HomePage() {
           <div className="benefit-grid">{privacyBenefits.map(([icon,title,copy]) => <article key={title}><span>{icon}</span><strong>{title}</strong><small>{copy}</small></article>)}</div>
         </section>
 
+        <EditorialVisualLedger />
+
         <section className="lower-grid">
           <div className="process-block">
             <div className="mini-heading"><span>The</span><h2>Alias &amp; Alibi <em>Process</em></h2></div>
@@ -166,7 +169,7 @@ export default function HomePage() {
         .alias-services b { color:rgba(255,255,255,.8); font-size:10px; font-weight:500; line-height:1.4; }
         .alias-services small { grid-column:2; color:rgba(255,255,255,.5); font-size:8px; }
         .alias-noir { position:relative; min-height:330px; overflow:hidden; }
-        .alias-noir-image { position:absolute; inset:0; background-image:url('https://cdn.shopify.com/s/files/1/0844/6889/1926/files/blog-36-10.jpg?v=1766750493'); background-size:cover; background-position:center 20%; filter:saturate(.45) brightness(.62) contrast(1.12); }
+        .alias-noir-image { position:absolute; inset:0; background-image:url('https://media.easy-peasy.ai/e47f4f76-4282-464f-98fe-bbb76bda5222/5aa34bd5-6e7e-4c07-9468-d64b0b21709b.png'); background-size:cover; background-position:center 20%; filter:saturate(.45) brightness(.62) contrast(1.12); }
         .alias-noir-gradient { position:absolute; inset:0; background:linear-gradient(90deg,#061523 0%,transparent 48%,rgba(2,11,20,.35)); }
         .alias-noir-mark { position:absolute; right:22px; bottom:18px; width:54px; height:54px; border:2px solid var(--concept-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--concept-gold2); background:rgba(2,11,20,.82); box-shadow:0 0 0 5px rgba(214,170,69,.08); }
         .alias-noir-mark span { font-family:Georgia,serif; font-size:20px; }.alias-noir-mark span:last-child{margin-left:-8px;margin-top:12px}.alias-noir-mark i{position:absolute;font-size:8px;color:#fff;font-style:italic}
