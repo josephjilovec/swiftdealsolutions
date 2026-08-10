@@ -1,0 +1,75 @@
+name: One-time Swift interior visual pass
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/swift-interior-pages-visual-pass.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply interior page visual system
+        shell: python
+        run: |
+          from pathlib import Path
+
+          # Header: About -> Principles
+          p = Path('components/SiteHeader.tsx')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('{ href: "/#about", label: "About" }', '{ href: "/#principles", label: "Principles" }')
+          p.write_text(s, encoding='utf-8')
+
+          # Homepage anchor
+          p = Path('app/page.tsx')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('<section className="benefit-band" id="about">', '<section className="benefit-band" id="principles">')
+          p.write_text(s, encoding='utf-8')
+
+          # Process page: two cinematic transaction-control images
+          p = Path('app/process/page.tsx')
+          s = p.read_text(encoding='utf-8')
+          marker = '      <section className="section shell-wide"><SectionHeading kicker="Interactive process"'
+          visual = '''      <section className="swift-interior-visuals process-interior shell-wide" aria-label="Private transaction coordination visuals">\n        <article className="swift-interior-card process-office"><span><small>Mandate control</small><strong>Private coordination before execution.</strong></span></article>\n        <article className="swift-interior-card process-close"><span><small>Counterparty discipline</small><strong>Evidence, authority, terms, then closing.</strong></span></article>\n      </section>\n'''
+          if 'process-interior' not in s:
+              s = s.replace(marker, visual + marker, 1)
+              s = s.replace('    </>\n  );', '''      <style>{`\n        .swift-interior-visuals{display:grid;gap:18px;margin-top:34px;margin-bottom:10px}.process-interior{grid-template-columns:1.15fr .85fr}.swift-interior-card{min-height:360px;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.34);background:#07111c center/cover no-repeat;isolation:isolate}.swift-interior-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,10,18,.96),rgba(3,10,18,.08) 70%),linear-gradient(90deg,rgba(3,10,18,.34),transparent);z-index:1}.swift-interior-card span{position:absolute;z-index:2;left:30px;right:30px;bottom:27px;display:grid;gap:7px}.swift-interior-card small{color:#f2cf72;font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.swift-interior-card strong{max-width:520px;color:#fff;font-family:var(--serif);font-size:clamp(26px,3vw,42px);font-weight:400;line-height:1.03}.process-office{background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85')}.process-close{background-image:url('https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1800&q=85')}@media(max-width:800px){.process-interior{grid-template-columns:1fr}.swift-interior-card{min-height:280px}}\n      `}</style>\n    </>\n  );''', 1)
+          p.write_text(s, encoding='utf-8')
+
+          # Opportunities page: three-asset editorial strip
+          p = Path('app/opportunities/page.tsx')
+          s = p.read_text(encoding='utf-8')
+          marker = '      <section className="section section-paper">'
+          visual = '''      <section className="opportunity-visual-strip shell-wide" aria-label="Representative private asset markets">\n        <article className="opportunity-photo aviation"><span><small>Aviation</small><strong>Mobile capital.</strong></span></article>\n        <article className="opportunity-photo maritime"><span><small>Maritime</small><strong>Trophy assets.</strong></span></article>\n        <article className="opportunity-photo estate"><span><small>Real estate</small><strong>Private ownership.</strong></span></article>\n      </section>\n'''
+          if 'opportunity-visual-strip' not in s:
+              s = s.replace(marker, visual + marker, 1)
+              s = s.replace('    </>\n  );', '''      <style>{`\n        .opportunity-visual-strip{display:grid;grid-template-columns:1.05fr .95fr 1fr;gap:16px;margin-top:34px;margin-bottom:28px}.opportunity-photo{min-height:330px;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.35);background:#07111c center/cover no-repeat;isolation:isolate}.opportunity-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,10,18,.96),rgba(3,10,18,.04) 72%);z-index:1}.opportunity-photo span{position:absolute;z-index:2;left:24px;bottom:23px}.opportunity-photo small,.opportunity-photo strong{display:block}.opportunity-photo small{color:#f2cf72;font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.opportunity-photo strong{margin-top:6px;color:#fff;font-family:var(--serif);font-size:30px;font-weight:400}.aviation{background-image:url('https://www.elitejets.com/wp-content/uploads/2020/06/L500-Runway-1920px-1024x579.jpg')}.maritime{background-image:url('https://cdn-image.y.co/upload/f_auto%2Cq_70%2Cc_fill%2Car_3%3A2%2Cw_1600/v1723799992/yacht/kensho/2024%2008%20Thierry%20Ameller%20Ibiza/yacht-kensho-running-01_xlpuyp.jpg')}.estate{background-image:url('https://www.acresh.com/pictures/blog/large/exploring-the-most-lavish-waterfront-properties_2.webp')}@media(max-width:800px){.opportunity-visual-strip{grid-template-columns:1fr}.opportunity-photo{min-height:270px}}\n      `}</style>\n    </>\n  );''', 1)
+          p.write_text(s, encoding='utf-8')
+
+          # Privacy page: noir identity + property discretion image pair
+          p = Path('app/privacy/page.tsx')
+          s = p.read_text(encoding='utf-8')
+          intro_end = '      </section>\n\n      <section className="section section-paper">'
+          visual = '''      </section>\n\n      <section className="privacy-visual-pair shell-wide" aria-label="Alias and Alibi privacy imagery">\n        <article className="privacy-visual identity"><span><small>Private identity</small><strong>Control what becomes public-facing.</strong></span></article>\n        <article className="privacy-visual property"><span><small>Property discretion</small><strong>Map the record trail before changing it.</strong></span></article>\n      </section>\n\n      <section className="section section-paper">'''
+          if 'privacy-visual-pair' not in s:
+              s = s.replace(intro_end, visual, 1)
+              css_anchor = '        .privacy-hero {'
+              css = '''        .privacy-visual-pair{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:24px;margin-bottom:72px}.privacy-visual{min-height:390px;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,.35);background:#07111c center/cover no-repeat;isolation:isolate}.privacy-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,10,18,.96),rgba(3,10,18,.04) 72%);z-index:1}.privacy-visual span{position:absolute;z-index:2;left:28px;right:28px;bottom:28px}.privacy-visual small,.privacy-visual strong{display:block}.privacy-visual small{color:var(--gold-bright);font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.privacy-visual strong{max-width:560px;margin-top:7px;color:#fff;font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:400;line-height:1.05}.privacy-visual.identity{background-image:url('https://media.easy-peasy.ai/e47f4f76-4282-464f-98fe-bbb76bda5222/5aa34bd5-6e7e-4c07-9468-d64b0b21709b.png');background-position:center 22%}.privacy-visual.property{background-image:url('https://www.acresh.com/pictures/blog/large/exploring-the-most-lavish-waterfront-properties_2.webp')}@media(max-width:800px){.privacy-visual-pair{grid-template-columns:1fr;margin-bottom:48px}.privacy-visual{min-height:300px}}\n'''
+              s = s.replace(css_anchor, css + css_anchor, 1)
+          p.write_text(s, encoding='utf-8')
+
+      - name: Commit final pass and remove workflow
+        run: |
+          rm .github/workflows/swift-interior-pages-visual-pass.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add components/SiteHeader.tsx app/page.tsx app/process/page.tsx app/opportunities/page.tsx app/privacy/page.tsx .github/workflows/swift-interior-pages-visual-pass.yml
+          git commit -m "Add Swift interior visuals and rename About to Principles"
+          git push
