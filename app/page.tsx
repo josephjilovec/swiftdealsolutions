@@ -20,7 +20,8 @@ const packages = [
     name: "Essential",
     sub: "Foundation privacy",
     items: ["Public-exposure map", "Correspondence review", "Professional handoff plan"],
-    href: "/submit?mode=privacy&service=essential"
+    href: "/submit?mode=privacy&service=essential",
+    featured: false
   },
   {
     name: "Strategic",
@@ -33,7 +34,8 @@ const packages = [
     name: "Bespoke",
     sub: "Complex situation",
     items: ["Tailored scope", "Multiple jurisdictions", "Professional routing map", "Ongoing coordination plan"],
-    href: "/submit?mode=privacy&service=bespoke"
+    href: "/submit?mode=privacy&service=bespoke",
+    featured: false
   }
 ] as const;
 
