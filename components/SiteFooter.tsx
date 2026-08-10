@@ -5,6 +5,8 @@ import { site } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
+<div className="jj-venture-nav" style={{margin:'0 auto 1.5rem',padding:'1rem 0',textAlign:'center',fontSize:'.78rem',letterSpacing:'.04em',opacity:.78}}><a href="https://www.josephjilovec.com/ventures" style={{color:'inherit',textDecoration:'none'}}>A Joseph Jilovec Venture</a><span aria-hidden="true" style={{margin:'0 .6rem'}}>·</span><a href="https://www.josephjilovec.com/ventures" style={{color:'inherit',textDecoration:'none',fontWeight:600}}>Explore the Venture Studio →</a></div>
+
       <div className="footer-main shell-wide">
         <div className="footer-brand-col"><BrandMark /><p>Private asset sourcing and contractual placement for select real estate, automotive, and marine opportunities.</p></div>
         <div className="footer-links"><div><span>Navigate</span><Link href="/#expertise">Expertise</Link><Link href="/opportunities">Opportunities</Link><Link href="/process">Process</Link></div><div><span>Connect</span><Link href="/submit?mode=seller">Submit an asset</Link><Link href="/submit?mode=buyer">Buyer network</Link><a href={`mailto:${site.email}`}>Email directly</a></div></div>
