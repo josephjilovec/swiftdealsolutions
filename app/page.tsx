@@ -1,270 +1,146 @@
 import Link from "next/link";
-import { EditorialVisualLedger } from "@/components/EditorialVisualLedger";
 
-const privacyBenefits = [
-  ["◉", "Reduced public exposure", "Map avoidable public-facing surfaces before acting."],
-  ["◇", "Cleaner coordination", "Separate entity, address, title, and professional workstreams."],
-  ["▦", "Documented ownership flow", "Keep the transaction record and privacy workflow organized."],
-  ["◎", "Multi-jurisdiction planning", "Surface location-specific dependencies before professional execution."],
-  ["⌁", "Discreet execution", "Limit unnecessary circulation of sensitive details during coordination."]
+const process = [
+  ["01", "Review the opportunity", "Start with the asset, authority to transact, pricing expectations, timing, and the information a serious counterparty will actually need."],
+  ["02", "Structure the brief", "Clarify the role Swift is playing, the intended transaction path, required disclosures, and the professional parties that may be needed."],
+  ["03", "Match selectively", "Present the opportunity to relevant qualified counterparties instead of turning every mandate into a broad public campaign."],
+  ["04", "Coordinate the close", "Keep diligence, inspections, title, escrow, surveys, financing, assignment terms, and professional handoffs organized through the agreed milestones."]
 ] as const;
 
-const privacyProcess = [
-  ["01", "Map", "Exposure & record assessment"],
-  ["02", "Design", "Structure & correspondence plan"],
-  ["03", "Route", "Authorized professional handoffs"],
-  ["04", "Verify", "Completion evidence & renewals"]
-] as const;
-
-const packages = [
+const assetCards = [
   {
-    name: "Essential",
-    sub: "Foundation privacy",
-    items: ["Public-exposure map", "Correspondence review", "Professional handoff plan"],
-    href: "/submit?mode=privacy&service=essential",
-    featured: false
+    eyebrow: "Residential + commercial",
+    title: "Real estate",
+    copy: "Private residences, luxury homes, multifamily, and select commercial properties. The transaction brief changes with the asset, but the goal stays the same: clear terms, capable counterparties, and disciplined execution.",
+    href: "/opportunities",
+    image: "https://images.unsplash.com/photo-1783936535299-6ff0f8bbd1d0?auto=format&fit=crop&fm=jpg&q=82&w=1800"
   },
   {
-    name: "Strategic",
-    sub: "Full coordination",
-    featured: true,
-    items: ["Multi-surface exposure review", "Entity & correspondence coordination", "Property-record review where relevant", "Completion tracking"],
-    href: "/submit?mode=privacy&service=strategic"
+    eyebrow: "Collector + limited production",
+    title: "Automotive",
+    copy: "Rare, exotic, collector-grade, and specialty vehicles presented around specification, documentation, condition, value, and a realistic path to transfer.",
+    href: "/opportunities",
+    image: "https://images.unsplash.com/photo-1768352725353-d498db8a1722?auto=format&fit=crop&fm=jpg&q=82&w=1800"
   },
   {
-    name: "Bespoke",
-    sub: "Complex situation",
-    items: ["Tailored scope", "Multiple jurisdictions", "Professional routing map", "Ongoing coordination plan"],
-    href: "/submit?mode=privacy&service=bespoke",
-    featured: false
+    eyebrow: "Yachts + specialty craft",
+    title: "Marine",
+    copy: "Significant powerboats, motor yachts, and specialty craft where vessel records, survey coordination, escrow, and buyer qualification matter as much as presentation.",
+    href: "/opportunities",
+    image: "https://images.unsplash.com/photo-1776934121312-e256a6339bc1?auto=format&fit=crop&fm=jpg&q=82&w=1800"
   }
 ] as const;
-
-const whoFor = [
-  "Private investors & family offices",
-  "Real-estate buyers & landlords",
-  "Business owners & operators",
-  "Privacy-conscious principals",
-  "International dealmakers"
-];
 
 export default function HomePage() {
   return (
     <>
-      <section className="swift-concept-hero" id="solutions">
-        <div className="swift-concept-hero-media" aria-hidden="true" />
-        <div className="swift-concept-hero-shade" aria-hidden="true" />
-        <div className="swift-concept-shell swift-concept-hero-inner">
-          <p className="concept-kicker">Move smarter. Close cleaner. Stay controlled.</p>
-          <h1>Strategic Transactions.<br /><em>Maximum Advantage.</em></h1>
-          <p className="concept-lede">Private transaction infrastructure for distinctive assets, qualified counterparties, controlled exposure, and disciplined execution.</p>
-          <div className="concept-actions">
-            <Link className="concept-btn concept-btn-gold" href="/submit">Start a deal <span>→</span></Link>
-            <Link className="concept-btn concept-btn-outline" href="/privacy"><span className="eye-icon">◉</span><span>Explore privacy package<small>Alias &amp; Alibi</small></span></Link>
+      <section className="swift-home-hero">
+        <div className="swift-home-hero-media" aria-hidden="true" />
+        <div className="swift-home-hero-shade" aria-hidden="true" />
+        <div className="shell-wide swift-home-hero-copy">
+          <p className="hero-eyebrow"><span /> Private asset placement</p>
+          <h1>Move the asset.<br /><em>Keep control of the process.</em></h1>
+          <p>Swift Deal Solutions coordinates discreet, high-value transactions across residential and commercial real estate, collector automobiles, and marine assets. Clear briefs. Qualified counterparties. No unnecessary noise.</p>
+          <div className="hero-actions">
+            <Link className="button button-gold" href="/submit">Start a deal <span>↗</span></Link>
+            <Link className="button button-ghost" href="/opportunities">Explore asset categories <span>↗</span></Link>
           </div>
         </div>
       </section>
 
-      <main className="swift-concept-main">
-        <section className="alias-feature" id="privacy-package">
-          <div className="alias-left">
-            <span className="alias-now">Now available</span>
-            <div className="alias-seal" aria-hidden="true"><span>A</span><i>&amp;</i><span>A</span></div>
-            <div className="alias-copy">
-              <h2>Alias &amp; Alibi</h2>
-              <p className="alias-sub">A Swift Deal Solutions package</p>
-              <strong>Private identity. Clean transactions. Total control.</strong>
-              <p>Privacy and exposure-reduction coordination for investors, dealmakers, property owners, and principals who want the public-facing side of a transaction organized with the same discipline as the deal itself.</p>
-              <div className="alias-actions">
-                <Link className="concept-btn concept-btn-gold" href="/privacy">Explore Alias &amp; Alibi <span>→</span></Link>
-                <Link className="alias-text-link" href="/submit?mode=privacy">Request scope &amp; pricing →</Link>
-              </div>
+      <section className="section shell-wide swift-intro">
+        <div>
+          <p className="kicker">What Swift does</p>
+          <h2>Private transactions built around the asset—not a generic marketplace.</h2>
+        </div>
+        <p>Some opportunities need broad exposure. Others do not. Swift is designed for owners, buyers, and authorized representatives who want a more controlled route: organize the facts, define the transaction, reach the right people, and coordinate the next step without turning the process into a public spectacle.</p>
+      </section>
+
+      <section className="swift-assets shell-wide" aria-label="Swift Deal Solutions asset categories">
+        {assetCards.map((asset) => (
+          <Link href={asset.href} className="swift-asset-card" key={asset.title}>
+            <div className="swift-asset-image" style={{ backgroundImage: `url('${asset.image}')` }} aria-hidden="true" />
+            <div className="swift-asset-shade" aria-hidden="true" />
+            <div className="swift-asset-copy">
+              <small>{asset.eyebrow}</small>
+              <h2>{asset.title}</h2>
+              <p>{asset.copy}</p>
+              <span>Explore assets ↗</span>
             </div>
+          </Link>
+        ))}
+      </section>
+
+      <section className="section section-paper swift-process-home">
+        <div className="shell-wide">
+          <div className="swift-process-head">
+            <div><p className="kicker">How it works</p><h2>A transaction process people can actually follow.</h2></div>
+            <p>The old “Transactions” label made this sound like a deal ledger. It is really the operating process: how an opportunity goes from first contact to a structured, professional close.</p>
           </div>
-
-          <div className="alias-services" aria-label="Alias and Alibi services">
-            <span>◫ <b>Entity &amp; identity architecture</b></span>
-            <span>✉ <b>Private correspondence</b></span>
-            <span>▱ <b>Ownership structure coordination</b></span>
-            <span>⌂ <b>The Nameless Landlord</b><small>Real-estate privacy review</small></span>
-            <span>◎ <b>Ongoing management map</b></span>
+          <div className="swift-process-grid">
+            {process.map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
           </div>
+          <div className="swift-process-link"><Link className="text-link" href="/process">See the full process <span>↗</span></Link></div>
+        </div>
+      </section>
 
-          <div className="alias-noir" aria-hidden="true"><div className="alias-noir-image" /><div className="alias-noir-gradient" /><div className="alias-noir-mark"><span>A</span><i>&amp;</i><span>A</span></div></div>
-        </section>
+      <section className="alias-home shell-wide">
+        <div className="alias-home-image" aria-hidden="true" />
+        <div className="alias-home-shade" aria-hidden="true" />
+        <div className="alias-home-copy">
+          <p className="kicker">Alias &amp; Alibi</p>
+          <h2>Privacy coordination when the transaction creates unnecessary exposure.</h2>
+          <p>Alias &amp; Alibi is the privacy layer inside Swift Deal Solutions. It helps clients map public-facing records, correspondence, entity administration, and property-related exposure, then route regulated work to the appropriate professionals. It is available alongside a Swift transaction or as a scoped standalone engagement.</p>
+          <Link className="button button-gold" href="/privacy">Explore Alias &amp; Alibi <span>↗</span></Link>
+        </div>
+      </section>
 
-        <section className="benefit-band" id="principles">
-          <div className="benefit-intro"><h2>Why <em>add privacy</em> to your deal?</h2><p>High-value transactions can create unnecessary exposure across records, correspondence, entities, and counterparties. Alias &amp; Alibi is about control and coordination—not concealment from lawful obligations.</p></div>
-          <div className="benefit-grid">{privacyBenefits.map(([icon,title,copy]) => <article key={title}><span>{icon}</span><strong>{title}</strong><small>{copy}</small></article>)}</div>
-        </section>
-
-        <EditorialVisualLedger />
-
-        <section className="lower-grid">
-          <div className="process-block">
-            <div className="mini-heading"><span>The</span><h2>Alias &amp; Alibi <em>Process</em></h2></div>
-            <div className="process-rail">
-              {privacyProcess.map(([number,title,copy], index) => <article key={number}><i>{number}</i><strong>{title}</strong><span>{copy}</span>{index < privacyProcess.length - 1 ? <b aria-hidden="true">›</b> : null}</article>)}
-            </div>
-            <div className="payment-note"><span>How payment works</span><p>Request a private review first. We define the proposed scope, boundaries, timing, and price in writing. After approval, you receive a secure payment link or invoice before work begins.</p></div>
-          </div>
-
-          <div className="package-block">
-            <div className="mini-heading"><span>Flexible scope</span><h2>Package <em>Options</em></h2></div>
-            <div className="package-grid">
-              {packages.map((pkg) => <article key={pkg.name} className={pkg.featured ? "featured" : ""}>{pkg.featured ? <span className="popular">Most popular</span> : null}<h3>{pkg.name}</h3><small>{pkg.sub}</small><ul>{pkg.items.map((item) => <li key={item}>✓ {item}</li>)}</ul><Link href={pkg.href}>{pkg.featured ? "Apply now" : pkg.name === "Bespoke" ? "Schedule review" : "Get started"} <span>→</span></Link></article>)}
-            </div>
-          </div>
-
-          <aside className="who-card"><h2>Who it’s for</h2><ul>{whoFor.map((item) => <li key={item}>✓ <span>{item}</span></li>)}</ul><div className="who-statement"><span>“</span><p>Privacy should make a transaction easier to control—not harder to explain.</p><small>Swift Deal Solutions</small></div></aside>
-        </section>
-
-        <section className="concept-footer-cta">
-          <div className="concept-mini-brand"><span className="wing-mark">◆</span><div><strong>Swift</strong><small>Deal Solutions</small></div></div>
-          <p>Structure. Execute. Protect.</p>
-          <div><strong>Ready to move with more control?</strong><small>Explore Alias &amp; Alibi or start your transaction today.</small></div>
-          <Link className="concept-btn concept-btn-outline" href="/privacy">◉ Explore privacy →</Link>
-          <Link className="concept-btn concept-btn-gold" href="/submit">Start a deal →</Link>
-        </section>
-      </main>
+      <section className="swift-final-cta shell-wide">
+        <div><p className="kicker">Private first contact</p><h2>Have an asset, mandate, or acquisition target?</h2></div>
+        <div><p>Bring the essential facts. We will start by determining fit, authority, timing, and the next practical step.</p><Link className="button button-dark" href="/submit">Open private inquiry <span>↗</span></Link></div>
+      </section>
 
       <style>{`
-        :root { --concept-bg:#020b14; --concept-panel:#06111d; --concept-panel2:#081726; --concept-gold:#d6aa45; --concept-gold2:#f2cf72; --concept-line:rgba(214,170,69,.46); --concept-muted:rgba(255,255,255,.62); }
-        body { background:var(--concept-bg); }
-        .swift-concept-shell,.swift-concept-main { width:min(1480px,calc(100% - 44px)); margin-inline:auto; }
-        .swift-concept-hero { min-height:610px; position:relative; overflow:hidden; display:flex; align-items:flex-end; background:#020b14; color:#fff; border-bottom:1px solid var(--concept-line); }
-        .swift-concept-hero-media { position:absolute; inset:0 0 0 36%; background-image:url('https://privatejet.com/wp-content/uploads/2024/10/Luxury-Ground-Transportation.jpg'); background-size:cover; background-position:center; filter:saturate(.82) contrast(1.08); }
-        .swift-concept-hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,#020b14 0%,rgba(2,11,20,.98) 30%,rgba(2,11,20,.78) 47%,rgba(2,11,20,.12) 78%,rgba(2,11,20,.28) 100%),linear-gradient(0deg,rgba(2,11,20,.64),transparent 50%); }
-        .swift-concept-hero-inner { position:relative; z-index:2; padding:180px 0 70px; }
-        .concept-kicker { margin:0 0 18px; color:var(--concept-gold2); font-size:10px; font-weight:800; letter-spacing:.23em; text-transform:uppercase; }
-        .swift-concept-hero h1 { margin:0; max-width:800px; font-family:Georgia,'Times New Roman',serif; font-size:clamp(58px,6.6vw,104px); line-height:.92; letter-spacing:-.055em; font-weight:400; }
-        .swift-concept-hero h1 em { display:block; color:var(--concept-gold2); font-weight:400; }
-        .concept-lede { max-width:650px; margin:25px 0 28px; color:rgba(255,255,255,.74); font-size:17px; line-height:1.7; }
-        .concept-actions { display:flex; gap:15px; flex-wrap:wrap; }
-        .concept-btn { min-height:52px; display:inline-flex; align-items:center; justify-content:center; gap:20px; padding:0 24px; border:1px solid var(--concept-line); font-size:10px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; transition:.2s ease; }
-        .concept-btn:hover { transform:translateY(-2px); }
-        .concept-btn-gold { background:linear-gradient(180deg,#f3d57f,#d7a638); color:#06111d; border-color:#efc65d; box-shadow:0 0 30px rgba(214,170,69,.12); }
-        .concept-btn-outline { color:#fff; background:rgba(2,11,20,.62); }
-        .concept-btn small { display:block; margin-top:2px; font-size:8px; font-weight:500; letter-spacing:.06em; text-transform:none; color:rgba(255,255,255,.6); }
-        .eye-icon { font-size:18px; color:var(--concept-gold2); }
-        .swift-concept-main { padding:8px 0 22px; color:#fff; }
-        .alias-feature { min-height:330px; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(260px,.6fr) minmax(310px,.72fr); position:relative; overflow:hidden; border:1px solid var(--concept-line); border-radius:13px; background:linear-gradient(110deg,#04101b,#061523 64%,#07111a); }
-        .alias-left { display:grid; grid-template-columns:150px 1fr; gap:28px; padding:28px; align-items:center; position:relative; }
-        .alias-now { position:absolute; top:18px; left:28px; color:var(--concept-gold2); font-size:9px; font-weight:850; letter-spacing:.2em; text-transform:uppercase; }
-        .alias-seal { width:138px; height:138px; margin-top:25px; border-radius:50%; display:flex; align-items:center; justify-content:center; gap:0; position:relative; background:radial-gradient(circle,#0b2131 0 48%,#06111d 49% 62%,#d8ae53 63% 67%,#081523 68% 74%,#d8ae53 75% 80%,#07111c 81%); color:var(--concept-gold2); box-shadow:0 8px 32px rgba(0,0,0,.45),inset 0 0 18px rgba(255,220,132,.2); }
-        .alias-seal::before { content:''; position:absolute; inset:18px; border:1px solid rgba(242,207,114,.65); border-radius:50%; }
-        .alias-seal span { font-family:Georgia,serif; font-size:52px; line-height:1; }
-        .alias-seal span:last-child { margin-left:-26px; margin-top:28px; }
-        .alias-seal i { position:absolute; font-family:Georgia,serif; font-size:17px; font-style:italic; color:rgba(255,255,255,.65); }
-        .alias-copy { padding-top:22px; }
-        .alias-copy h2 { margin:0; color:var(--concept-gold2); font-family:Georgia,serif; font-size:clamp(38px,4vw,62px); font-weight:400; letter-spacing:-.03em; }
-        .alias-sub { margin:3px 0 18px !important; color:rgba(255,255,255,.72) !important; font-size:9px !important; letter-spacing:.26em; text-transform:uppercase; }
-        .alias-copy strong { display:block; color:var(--concept-gold2); font-size:10px; letter-spacing:.11em; text-transform:uppercase; }
-        .alias-copy p { max-width:620px; margin:12px 0 0; color:rgba(255,255,255,.67); font-size:13px; line-height:1.65; }
-        .alias-actions { margin-top:20px; display:flex; flex-wrap:wrap; gap:24px; align-items:center; }
-        .alias-actions .concept-btn { min-height:44px; }
-        .alias-text-link { color:rgba(255,255,255,.82); font-size:10px; }
-        .alias-services { align-self:stretch; display:flex; flex-direction:column; justify-content:center; gap:16px; padding:28px 18px; border-left:1px solid rgba(214,170,69,.28); border-right:1px solid rgba(214,170,69,.28); }
-        .alias-services span { display:grid; grid-template-columns:28px 1fr; align-items:center; color:var(--concept-gold2); font-size:16px; }
-        .alias-services b { color:rgba(255,255,255,.8); font-size:10px; font-weight:500; line-height:1.4; }
-        .alias-services small { grid-column:2; color:rgba(255,255,255,.5); font-size:8px; }
-        .alias-noir { position:relative; min-height:330px; overflow:hidden; }
-        .alias-noir-image { position:absolute; inset:0; background-image:url('https://media.easy-peasy.ai/e47f4f76-4282-464f-98fe-bbb76bda5222/5aa34bd5-6e7e-4c07-9468-d64b0b21709b.png'); background-size:cover; background-position:center 20%; filter:saturate(.45) brightness(.62) contrast(1.12); }
-        .alias-noir-gradient { position:absolute; inset:0; background:linear-gradient(90deg,#061523 0%,transparent 48%,rgba(2,11,20,.35)); }
-        .alias-noir-mark { position:absolute; right:22px; bottom:18px; width:54px; height:54px; border:2px solid var(--concept-gold); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--concept-gold2); background:rgba(2,11,20,.82); box-shadow:0 0 0 5px rgba(214,170,69,.08); }
-        .alias-noir-mark span { font-family:Georgia,serif; font-size:20px; }.alias-noir-mark span:last-child{margin-left:-8px;margin-top:12px}.alias-noir-mark i{position:absolute;font-size:8px;color:#fff;font-style:italic}
-        .benefit-band { margin-top:10px; display:grid; grid-template-columns:minmax(330px,.8fr) minmax(0,1.6fr); border:1px solid rgba(214,170,69,.28); border-radius:12px; overflow:hidden; background:#04101b; }
-        .benefit-intro { padding:22px 24px; border-right:1px solid rgba(214,170,69,.2); }
-        .benefit-intro h2 { margin:0 0 8px; font-family:Georgia,serif; font-size:28px; font-weight:400; }.benefit-intro h2 em{color:var(--concept-gold2);font-weight:400}.benefit-intro p{margin:0;color:rgba(255,255,255,.62);font-size:11px;line-height:1.6}
-        .benefit-grid { display:grid; grid-template-columns:repeat(5,1fr); }
-        .benefit-grid article { min-height:118px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px; border-right:1px solid rgba(214,170,69,.18); }.benefit-grid article:last-child{border-right:0}.benefit-grid article>span{color:var(--concept-gold2);font-size:28px}.benefit-grid strong{margin-top:8px;font-size:10px}.benefit-grid small{margin-top:5px;color:rgba(255,255,255,.48);font-size:8px;line-height:1.35}
-        .lower-grid { margin-top:10px; display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr) 230px; gap:10px; }
-        .process-block,.package-block,.who-card { border:1px solid rgba(214,170,69,.24); border-radius:12px; background:#04101b; padding:18px; }
-        .mini-heading span { display:block; color:rgba(255,255,255,.45); font-size:8px; letter-spacing:.16em; text-transform:uppercase; }.mini-heading h2{margin:4px 0 16px;font-family:Georgia,serif;font-size:25px;font-weight:400}.mini-heading h2 em{color:var(--concept-gold2);font-weight:400}
-        .process-rail { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
-        .process-rail article { min-height:130px; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px solid rgba(214,170,69,.24); border-radius:8px; padding:18px 10px 12px; background:#061321; }.process-rail i{position:absolute;top:-12px;left:12px;width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:var(--concept-gold2);color:#06111d;font-size:9px;font-style:normal;font-weight:850}.process-rail strong{font-size:10px;text-transform:uppercase}.process-rail span{margin-top:7px;color:rgba(255,255,255,.58);font-size:8px;line-height:1.4}.process-rail b{position:absolute;right:-11px;color:var(--concept-gold2);font-size:26px;font-weight:300;z-index:3}
-        .payment-note { margin-top:16px; display:grid; grid-template-columns:130px 1fr; gap:14px; padding:14px 0 0; border-top:1px solid rgba(214,170,69,.2); }.payment-note span{color:var(--concept-gold2);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.payment-note p{margin:0;color:rgba(255,255,255,.58);font-size:9px;line-height:1.55}
-        .package-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; align-items:stretch; }
-        .package-grid article { min-height:240px; position:relative; display:flex; flex-direction:column; padding:18px; border:1px solid rgba(214,170,69,.3); border-radius:8px; background:#061321; }.package-grid article.featured{border-color:var(--concept-gold2);box-shadow:0 0 22px rgba(214,170,69,.18),inset 0 0 24px rgba(214,170,69,.04)}.popular{position:absolute;top:-10px;left:50%;transform:translateX(-50%);padding:3px 16px;border-radius:20px;background:#08111a;border:1px solid var(--concept-gold);color:var(--concept-gold2);font-size:7px;text-transform:uppercase;white-space:nowrap}.package-grid h3{margin:5px 0 2px;text-align:center;color:#fff;font-size:15px;text-transform:uppercase}.package-grid article.featured h3{color:var(--concept-gold2)}.package-grid article>small{text-align:center;color:rgba(255,255,255,.5);font-size:8px}.package-grid ul{margin:16px 0;padding:0;list-style:none;color:rgba(255,255,255,.74);font-size:8px;line-height:1.75}.package-grid a{margin-top:auto;min-height:34px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(214,170,69,.45);font-size:8px;text-transform:uppercase;letter-spacing:.06em}.package-grid .featured a{background:linear-gradient(180deg,#f3d57f,#d7a638);color:#06111d;font-weight:850}
-        .who-card h2{margin:0;font-family:Georgia,serif;font-size:24px;font-weight:400}.who-card ul{margin:15px 0 0;padding:0;list-style:none}.who-card li{display:flex;gap:8px;padding:5px 0;color:var(--concept-gold2);font-size:10px}.who-card li span{color:rgba(255,255,255,.72);line-height:1.35}.who-statement{margin-top:18px;padding-top:15px;border-top:1px solid rgba(214,170,69,.2)}.who-statement>span{color:var(--concept-gold2);font-family:Georgia,serif;font-size:32px;line-height:.5}.who-statement p{margin:5px 0;color:rgba(255,255,255,.7);font-family:Georgia,serif;font-size:14px;font-style:italic;line-height:1.45}.who-statement small{color:rgba(255,255,255,.42);font-size:8px}
-        .concept-footer-cta { min-height:78px; margin-top:10px; display:grid; grid-template-columns:220px 160px 1fr auto auto; gap:18px; align-items:center; padding:14px 18px; border-top:1px solid var(--concept-line); background:#020b14; }.concept-mini-brand{display:flex;align-items:center;gap:10px}.wing-mark{color:var(--concept-gold2);font-size:30px}.concept-mini-brand strong,.concept-mini-brand small{display:block;text-transform:uppercase}.concept-mini-brand strong{font-family:Georgia,serif;font-size:24px;font-weight:400;letter-spacing:.08em}.concept-mini-brand small{font-size:7px;letter-spacing:.3em}.concept-footer-cta>p{margin:0;color:var(--concept-gold2);font-size:9px}.concept-footer-cta>div:nth-child(3) strong,.concept-footer-cta>div:nth-child(3) small{display:block}.concept-footer-cta>div:nth-child(3) strong{font-family:Georgia,serif;font-weight:400}.concept-footer-cta>div:nth-child(3) small{margin-top:2px;color:rgba(255,255,255,.5);font-size:8px}.concept-footer-cta .concept-btn{min-height:42px;padding:0 18px}
-
-        /* Desktop readability pass: make the Alias & Alibi system feel correct at 100% browser zoom. */
-        @media(min-width:1101px){
-          .swift-concept-main{width:min(1580px,calc(100% - 32px));padding:14px 0 34px}
-          .alias-feature{min-height:405px;grid-template-columns:minmax(0,1.24fr) minmax(310px,.64fr) minmax(350px,.72fr);border-radius:16px}
-          .alias-left{grid-template-columns:178px 1fr;gap:34px;padding:36px}
-          .alias-now{top:23px;left:36px;font-size:11px}
-          .alias-seal{width:166px;height:166px;margin-top:30px}
-          .alias-seal::before{inset:22px}
-          .alias-seal span{font-size:63px}
-          .alias-seal span:last-child{margin-left:-31px;margin-top:34px}
-          .alias-seal i{font-size:20px}
-          .alias-copy{padding-top:27px}
-          .alias-copy h2{font-size:clamp(48px,4.5vw,72px)}
-          .alias-sub{margin:4px 0 22px!important;font-size:11px!important}
-          .alias-copy strong{font-size:12px;line-height:1.45}
-          .alias-copy p{max-width:700px;margin-top:15px;font-size:16px;line-height:1.68}
-          .alias-actions{margin-top:25px;gap:30px}
-          .alias-actions .concept-btn{min-height:54px;padding-inline:28px;font-size:11px}
-          .alias-text-link{font-size:12px}
-          .alias-services{gap:21px;padding:36px 24px}
-          .alias-services span{grid-template-columns:34px 1fr;font-size:20px}
-          .alias-services b{font-size:12px;line-height:1.5}
-          .alias-services small{font-size:10px}
-          .alias-noir{min-height:405px}
-          .alias-noir-mark{right:27px;bottom:23px;width:66px;height:66px}
-          .alias-noir-mark span{font-size:24px}
-          .alias-noir-mark i{font-size:10px}
-          .benefit-band{margin-top:14px;grid-template-columns:minmax(390px,.82fr) minmax(0,1.6fr);border-radius:15px}
-          .benefit-intro{padding:29px 31px}
-          .benefit-intro h2{margin-bottom:11px;font-size:35px}
-          .benefit-intro p{font-size:14px;line-height:1.65}
-          .benefit-grid article{min-height:148px;padding:16px}
-          .benefit-grid article>span{font-size:35px}
-          .benefit-grid strong{margin-top:10px;font-size:12px;line-height:1.35}
-          .benefit-grid small{margin-top:7px;font-size:10px;line-height:1.45}
-          .lower-grid{margin-top:14px;grid-template-columns:minmax(0,.98fr) minmax(0,1.07fr) 280px;gap:14px}
-          .process-block,.package-block,.who-card{border-radius:15px;padding:24px}
-          .mini-heading span{font-size:10px}
-          .mini-heading h2{margin:5px 0 20px;font-size:31px}
-          .process-rail{gap:10px}
-          .process-rail article{min-height:160px;padding:23px 13px 16px;border-radius:10px}
-          .process-rail i{top:-14px;left:15px;width:33px;height:33px;font-size:11px}
-          .process-rail strong{font-size:12px}
-          .process-rail span{margin-top:9px;font-size:10px;line-height:1.45}
-          .process-rail b{right:-13px;font-size:32px}
-          .payment-note{margin-top:20px;grid-template-columns:155px 1fr;gap:18px;padding-top:18px}
-          .payment-note span{font-size:11px;line-height:1.4}
-          .payment-note p{font-size:11px;line-height:1.6}
-          .package-grid{gap:10px}
-          .package-grid article{min-height:295px;padding:23px;border-radius:10px}
-          .popular{top:-12px;padding:4px 19px;font-size:9px}
-          .package-grid h3{margin:7px 0 3px;font-size:18px}
-          .package-grid article>small{font-size:10px}
-          .package-grid ul{margin:20px 0;font-size:10px;line-height:1.8}
-          .package-grid a{min-height:42px;font-size:10px}
-          .who-card h2{font-size:30px}
-          .who-card ul{margin-top:19px}
-          .who-card li{gap:10px;padding:7px 0;font-size:12px}
-          .who-card li span{line-height:1.45}
-          .who-statement{margin-top:22px;padding-top:19px}
-          .who-statement>span{font-size:40px}
-          .who-statement p{margin:7px 0;font-size:17px;line-height:1.5}
-          .who-statement small{font-size:10px}
-          .concept-footer-cta{min-height:96px;margin-top:14px;grid-template-columns:250px 180px 1fr auto auto;gap:22px;padding:18px 22px}
-          .wing-mark{font-size:36px}
-          .concept-mini-brand strong{font-size:29px}
-          .concept-mini-brand small{font-size:9px}
-          .concept-footer-cta>p{font-size:11px}
-          .concept-footer-cta>div:nth-child(3) strong{font-size:16px}
-          .concept-footer-cta>div:nth-child(3) small{margin-top:3px;font-size:10px}
-          .concept-footer-cta .concept-btn{min-height:50px;padding:0 22px;font-size:10px}
-        }
-
-        @media(max-width:1100px){.alias-feature{grid-template-columns:1fr 320px}.alias-services{grid-column:1;grid-row:2;border-left:0;border-right:0;border-top:1px solid rgba(214,170,69,.25);display:grid;grid-template-columns:repeat(3,1fr)}.alias-noir{grid-column:2;grid-row:1/3}.benefit-band{grid-template-columns:1fr}.benefit-intro{border-right:0;border-bottom:1px solid rgba(214,170,69,.2)}.lower-grid{grid-template-columns:1fr}.who-card{display:grid;grid-template-columns:220px 1fr 300px;gap:20px;align-items:start}.concept-footer-cta{grid-template-columns:1fr auto auto}.concept-footer-cta>p,.concept-footer-cta>div:nth-child(3){display:none}}
-        @media(max-width:780px){.swift-concept-shell,.swift-concept-main{width:min(100% - 24px,1480px)}.swift-concept-hero{min-height:680px}.swift-concept-hero-media{inset:0;background-position:65% center}.swift-concept-hero-shade{background:linear-gradient(0deg,#020b14 0%,rgba(2,11,20,.92) 46%,rgba(2,11,20,.2) 100%)}.swift-concept-hero-inner{padding:300px 0 48px}.swift-concept-hero h1{font-size:clamp(48px,14vw,78px)}.concept-lede{font-size:14px}.alias-feature{grid-template-columns:1fr}.alias-left{grid-template-columns:100px 1fr;padding:22px}.alias-seal{width:94px;height:94px}.alias-seal span{font-size:34px}.alias-services{grid-column:1;grid-row:auto;grid-template-columns:1fr 1fr;padding:20px}.alias-noir{grid-column:1;grid-row:auto;min-height:300px}.benefit-grid{grid-template-columns:1fr 1fr}.benefit-grid article:nth-child(2n){border-right:0}.process-rail{grid-template-columns:1fr 1fr}.package-grid{grid-template-columns:1fr}.who-card{display:block}.concept-footer-cta{grid-template-columns:1fr}.concept-footer-cta .concept-btn{width:100%}.concept-mini-brand{justify-content:center}.payment-note{grid-template-columns:1fr}}
-        @media(max-width:500px){.alias-left{grid-template-columns:1fr}.alias-seal{margin-top:32px}.alias-services{grid-template-columns:1fr}.benefit-grid{grid-template-columns:1fr}.benefit-grid article{border-right:0;border-bottom:1px solid rgba(214,170,69,.18)}.process-rail{grid-template-columns:1fr}.process-rail b{display:none}.concept-actions{display:grid}.concept-btn{width:100%}.alias-actions{align-items:stretch}.alias-actions .concept-btn{width:100%}}
+        .swift-home-hero{position:relative;min-height:760px;display:flex;align-items:end;overflow:hidden;background:#020b14;color:#fff;border-bottom:1px solid rgba(214,170,69,.4)}
+        .swift-home-hero-media{position:absolute;inset:0;background-image:url('https://privatejet.com/wp-content/uploads/2024/10/Luxury-Ground-Transportation.jpg');background-size:cover;background-position:center;filter:saturate(.8) contrast(1.08)}
+        .swift-home-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,11,20,.98) 0%,rgba(2,11,20,.89) 38%,rgba(2,11,20,.46) 68%,rgba(2,11,20,.3) 100%),linear-gradient(0deg,rgba(2,11,20,.66),transparent 55%)}
+        .swift-home-hero-copy{position:relative;z-index:2;padding:120px 0 92px}
+        .swift-home-hero h1{max-width:980px;margin:0;font-family:var(--serif);font-size:clamp(62px,7vw,112px);line-height:.91;letter-spacing:-.055em;font-weight:400}
+        .swift-home-hero h1 em{display:block;color:var(--gold-bright);font-weight:400}
+        .swift-home-hero-copy>p:not(.hero-eyebrow){max-width:740px;margin:30px 0 36px;color:rgba(255,255,255,.74);font-size:18px;line-height:1.75}
+        .swift-intro{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.65fr);gap:clamp(48px,8vw,120px);align-items:end}
+        .swift-intro h2,.swift-process-head h2,.swift-final-cta h2{margin:14px 0 0;font-family:var(--serif);font-size:clamp(44px,5vw,76px);line-height:1;letter-spacing:-.045em;font-weight:400}
+        .swift-intro>p,.swift-process-head>p,.swift-final-cta p{margin:0;color:var(--muted);font-size:16px;line-height:1.8}
+        .swift-assets{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:clamp(86px,9vw,150px)}
+        .swift-asset-card{position:relative;min-height:560px;overflow:hidden;border:1px solid rgba(212,175,55,.32);background:#07111c;color:#fff;isolation:isolate}
+        .swift-asset-image,.swift-asset-shade{position:absolute;inset:0}
+        .swift-asset-image{background-size:cover;background-position:center;transition:transform .55s ease;z-index:-2}
+        .swift-asset-shade{z-index:-1;background:linear-gradient(0deg,rgba(3,10,18,.98) 0%,rgba(3,10,18,.68) 43%,rgba(3,10,18,.08) 82%)}
+        .swift-asset-card:hover .swift-asset-image{transform:scale(1.035)}
+        .swift-asset-copy{position:absolute;left:28px;right:28px;bottom:28px}
+        .swift-asset-copy small{color:var(--gold-bright);font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+        .swift-asset-copy h2{margin:7px 0 12px;font-family:var(--serif);font-size:46px;font-weight:400}
+        .swift-asset-copy p{margin:0;color:rgba(255,255,255,.68);font-size:13px;line-height:1.7}
+        .swift-asset-copy span{display:block;margin-top:20px;color:var(--gold-bright);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+        .swift-process-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.55fr);gap:clamp(42px,7vw,100px);align-items:end;margin-bottom:58px}
+        .swift-process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+        .swift-process-grid article{min-height:300px;padding:30px;border-right:1px solid var(--line)}
+        .swift-process-grid article:first-child{padding-left:0}.swift-process-grid article:last-child{border-right:0}
+        .swift-process-grid span{color:var(--gold-dark);font-family:var(--serif)}
+        .swift-process-grid h3{margin:62px 0 14px;font-family:var(--serif);font-size:28px;font-weight:400}
+        .swift-process-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.75}
+        .swift-process-link{margin-top:34px}
+        .alias-home{position:relative;min-height:620px;margin-top:clamp(82px,8vw,130px);margin-bottom:clamp(82px,8vw,130px);overflow:hidden;border:1px solid rgba(212,175,55,.36);background:#06111d;color:#fff;display:flex;align-items:center;isolation:isolate}
+        .alias-home-image{position:absolute;inset:0 0 0 46%;z-index:-3;background-image:url('https://media.easy-peasy.ai/e47f4f76-4282-464f-98fe-bbb76bda5222/5aa34bd5-6e7e-4c07-9468-d64b0b21709b.png');background-size:cover;background-position:center 20%;filter:saturate(.45) brightness(.62) contrast(1.12)}
+        .alias-home-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#06111d 0%,#06111d 40%,rgba(6,17,29,.82) 58%,rgba(6,17,29,.18) 100%)}
+        .alias-home-copy{max-width:680px;padding:72px}
+        .alias-home-copy .kicker{color:var(--gold-bright)}
+        .alias-home-copy h2{margin:14px 0 22px;font-family:var(--serif);font-size:clamp(46px,5vw,76px);line-height:1;letter-spacing:-.045em;font-weight:400}
+        .alias-home-copy p{margin:0 0 30px;color:rgba(255,255,255,.68);font-size:15px;line-height:1.8}
+        .swift-final-cta{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.55fr);gap:clamp(42px,8vw,120px);align-items:end;padding:0 0 clamp(90px,9vw,150px)}
+        .swift-final-cta .button{margin-top:26px}
+        @media(max-width:1000px){.swift-assets{grid-template-columns:1fr}.swift-asset-card{min-height:440px}.swift-process-grid{grid-template-columns:1fr 1fr}.swift-process-grid article:nth-child(2){border-right:0}.swift-process-grid article:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+        @media(max-width:800px){.swift-home-hero{min-height:680px}.swift-home-hero-copy{padding:90px 0 72px}.swift-intro,.swift-process-head,.swift-final-cta{grid-template-columns:1fr}.swift-process-grid{grid-template-columns:1fr}.swift-process-grid article{border-right:0;border-bottom:1px solid var(--line);padding:28px 0;min-height:0}.swift-process-grid article:last-child{border-bottom:0}.swift-process-grid h3{margin-top:30px}.alias-home{min-height:660px;align-items:end}.alias-home-image{inset:0}.alias-home-shade{background:linear-gradient(0deg,#06111d 0%,rgba(6,17,29,.9) 55%,rgba(6,17,29,.24) 100%)}.alias-home-copy{padding:36px 28px}.swift-final-cta{padding-bottom:90px}}
       `}</style>
     </>
   );
