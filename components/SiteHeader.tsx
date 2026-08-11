@@ -6,11 +6,10 @@ import { useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 
 const nav = [
-  { href: "/#solutions", label: "Solutions" },
-  { href: "/process", label: "Transactions" },
+  { href: "/", label: "Home" },
   { href: "/opportunities", label: "Assets" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/#principles", label: "Principles" },
+  { href: "/process", label: "How It Works" },
+  { href: "/privacy", label: "Alias & Alibi" },
   { href: "/submit", label: "Contact" }
 ];
 
@@ -26,7 +25,7 @@ export function SiteHeader() {
           <Link
             key={item.href}
             href={item.href}
-            className={pathname === item.href || (item.href === "/privacy" && pathname === "/privacy") ? "is-current" : ""}
+            className={pathname === item.href ? "is-current" : ""}
             onClick={() => setOpen(false)}
           >
             {item.label}
@@ -46,9 +45,15 @@ export function SiteHeader() {
 
       <style>{`
         .swift-lux-header {
-          background: rgba(2, 11, 20, .94);
-          border-bottom-color: rgba(212,175,55,.22);
+          position: sticky !important;
+          top: 0 !important;
+          inset: auto 0 auto 0 !important;
+          z-index: 999 !important;
+          background: rgba(2, 11, 20, .96);
+          border-bottom: 1px solid rgba(212,175,55,.24);
           backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          box-shadow: 0 12px 34px rgba(0,0,0,.16);
         }
         .swift-header-cta {
           min-height: 42px;
@@ -69,14 +74,14 @@ export function SiteHeader() {
         @media (min-width: 901px) {
           .swift-lux-header {
             display: grid !important;
-            grid-template-columns: minmax(210px,.8fr) minmax(520px,1.8fr) minmax(170px,.7fr) !important;
-            gap: 28px !important;
-            align-items: center;
+            grid-template-columns: minmax(210px,.8fr) minmax(500px,1.8fr) minmax(160px,.65fr) !important;
+            gap: clamp(18px,2.4vw,38px) !important;
+            align-items: center !important;
           }
           .swift-lux-header .brand { grid-column: 1 !important; grid-row: 1 !important; justify-self: start !important; }
-          .swift-lux-header .site-nav { grid-column: 2 !important; grid-row: 1 !important; justify-self: center !important; margin: 0 !important; gap: clamp(20px,2.6vw,40px); }
-          .swift-lux-header .site-nav a { font-size: 9px; }
-          .swift-lux-header .swift-header-cta { grid-column: 3; grid-row: 1; justify-self: end; }
+          .swift-lux-header .site-nav { grid-column: 2 !important; grid-row: 1 !important; justify-self: center !important; margin: 0 !important; gap: clamp(16px,2vw,32px) !important; }
+          .swift-lux-header .site-nav a { font-size: 9px; white-space: nowrap; }
+          .swift-lux-header .swift-header-cta { grid-column: 3 !important; grid-row: 1 !important; justify-self: end !important; }
         }
         @media (max-width: 900px) {
           .swift-header-cta { display: none; }
