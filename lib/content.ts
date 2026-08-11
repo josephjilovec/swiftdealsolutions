@@ -16,15 +16,15 @@ export const assetClasses: AssetClass[] = [
   {
     id: "real-estate",
     number: "01",
-    label: "Estates · Multifamily · Commercial",
-    title: "Luxury & Commercial Real Estate",
+    label: "Residential · Multifamily · Commercial",
+    title: "Residential & Commercial Real Estate",
     shortTitle: "Real estate",
     description:
-      "Architecturally distinctive estates, multifamily communities, and select commercial opportunities positioned for private acquisition.",
+      "Private homes, luxury residences, multifamily properties, and select commercial real estate positioned for controlled acquisition or transfer with pricing, authority, timing, and diligence made clear from the start.",
     image:
       "https://images.unsplash.com/photo-1783936535299-6ff0f8bbd1d0?auto=format&fit=crop&fm=jpg&q=78&w=1800",
-    imageAlt: "Contemporary luxury estate and pool",
-    signals: ["Private owner briefs", "Defined pricing", "Qualified counterparties"],
+    imageAlt: "Contemporary luxury residence and pool",
+    signals: ["Residential and commercial briefs", "Defined pricing", "Qualified counterparties"],
     accent: "#d4af37",
     soft: "rgba(212,175,55,.16)"
   },
@@ -71,7 +71,7 @@ export const representativeProfiles = [
     image:
       "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&fm=jpg&q=78&w=1800",
     summary:
-      "A presentation example showing how a distinctive estate could be framed under a private acquisition agreement, circulated selectively, and moved toward escrow without a broad public campaign.",
+      "A presentation example showing how a distinctive residence could be framed under a private acquisition agreement, circulated selectively, and moved toward escrow without a broad public campaign.",
     facts: ["Private residential", "Agreed net pricing", "Targeted buyer allocation"]
   },
   {
