@@ -49,24 +49,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <style>{`
-          @media (min-width: 901px) {
-            .site-header {
-              display: grid;
-              grid-template-columns: minmax(0, 1fr) auto;
-              column-gap: clamp(34px, 5vw, 84px);
-            }
-            .site-header .site-nav {
-              grid-column: 1;
-              grid-row: 1;
-              justify-self: start;
-            }
-            .site-header .brand {
-              grid-column: 2;
-              grid-row: 1;
-              justify-self: end;
-            }
-          }
-
           @media (min-width: 1101px) {
             .swift-concept-main .lower-grid {
               align-items: start !important;
@@ -77,24 +59,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               align-self: start !important;
               height: auto !important;
               min-height: 0 !important;
-            }
-            .swift-concept-main .process-rail {
-              height: auto !important;
-              min-height: 0 !important;
-              align-items: start !important;
-              grid-auto-rows: auto !important;
-            }
-            .swift-concept-main .process-rail article {
-              height: auto !important;
-              min-height: 180px !important;
-              align-self: start !important;
-            }
-            .swift-concept-main .package-grid {
-              align-items: start !important;
-            }
-            .swift-concept-main .package-grid article {
-              height: auto !important;
-              align-self: start !important;
             }
           }
         `}</style>
