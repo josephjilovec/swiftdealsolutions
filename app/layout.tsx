@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Swift Deal Solutions | Private Asset Placement",
+    default: "Swift Deal Solutions | Private Deal Architecture",
     template: "%s | Swift Deal Solutions"
   },
   description: site.description,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: site.url,
-    title: "Swift Deal Solutions | Private Asset Placement",
+    title: "Swift Deal Solutions | Private Deal Architecture",
     description: site.description,
     siteName: site.name,
     images: [{
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Swift Deal Solutions | Private Asset Placement",
+    title: "Swift Deal Solutions | Private Deal Architecture",
     description: site.description
   },
   robots: { index: true, follow: true }
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <style>{`
-          /* Swift Deal Solutions — August 7 navy + gold palette lock */
+          /* Swift Deal Solutions — navy + gold brand, emerald transaction status */
           :root {
             --navy-1000: #030a12;
             --navy-950: #06101d;
@@ -60,6 +60,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             --gold: #d4af37;
             --gold-bright: #e6ca6d;
             --gold-dark: #92701e;
+            --emerald: #059669;
+            --emerald-bright: #34d399;
+            --off-white: #f8fafc;
             --ivory: #f7f4ec;
             --paper: #eee9de;
           }
