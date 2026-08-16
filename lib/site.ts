@@ -2,7 +2,7 @@ export const site = {
   name: "Swift Deal Solutions",
   shortName: "Swift Deal",
   description:
-    "Private deal architecture for high-value real estate, collector automotive, and marine transactions with structured valuation, counterparty verification, diligence, and closing coordination.",
+    "Discreet sourcing and contractual placement for select real estate, rare motorcars, and luxury marine opportunities.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://swiftdealsolutions.com",
   email: "realjjemail@gmail.com"
 };
