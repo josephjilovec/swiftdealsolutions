@@ -7,6 +7,7 @@ import { BrandMark } from "@/components/BrandMark";
 
 const nav = [
   { href: "/", label: "Home" },
+  { href: "/#deal-intelligence", label: "Deal Room" },
   { href: "/opportunities", label: "Assets" },
   { href: "/process", label: "How It Works" },
   { href: "/privacy", label: "Alias & Alibi" },
@@ -74,13 +75,13 @@ export function SiteHeader() {
         @media (min-width: 901px) {
           .swift-lux-header {
             display: grid !important;
-            grid-template-columns: minmax(210px,.8fr) minmax(500px,1.8fr) minmax(160px,.65fr) !important;
-            gap: clamp(18px,2.4vw,38px) !important;
+            grid-template-columns: minmax(210px,.75fr) minmax(570px,1.95fr) minmax(160px,.6fr) !important;
+            gap: clamp(14px,2vw,34px) !important;
             align-items: center !important;
           }
           .swift-lux-header .brand { grid-column: 1 !important; grid-row: 1 !important; justify-self: start !important; }
-          .swift-lux-header .site-nav { grid-column: 2 !important; grid-row: 1 !important; justify-self: center !important; margin: 0 !important; gap: clamp(16px,2vw,32px) !important; }
-          .swift-lux-header .site-nav a { font-size: 9px; white-space: nowrap; }
+          .swift-lux-header .site-nav { grid-column: 2 !important; grid-row: 1 !important; justify-self: center !important; margin: 0 !important; gap: clamp(13px,1.55vw,25px) !important; }
+          .swift-lux-header .site-nav a { font-size: 8px; white-space: nowrap; }
           .swift-lux-header .swift-header-cta { grid-column: 3 !important; grid-row: 1 !important; justify-self: end !important; }
         }
         @media (max-width: 900px) {

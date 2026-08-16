@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DealArchitectureSuite } from "@/components/DealArchitectureSuite";
 
 const process = [
   ["01", "Review the opportunity", "Start with the asset, authority to transact, pricing expectations, timing, and the information a serious counterparty will actually need."],
@@ -38,12 +39,12 @@ export default function HomePage() {
         <div className="swift-home-hero-media" aria-hidden="true" />
         <div className="swift-home-hero-shade" aria-hidden="true" />
         <div className="shell-wide swift-home-hero-copy">
-          <p className="hero-eyebrow"><span /> Private asset placement</p>
+          <p className="hero-eyebrow"><span /> High-velocity transaction architecture</p>
           <h1>Move the asset.<br /><em>Keep control of the process.</em></h1>
-          <p>Swift Deal Solutions coordinates discreet, high-value transactions across residential and commercial real estate, collector automobiles, and marine assets. Clear briefs. Qualified counterparties. No unnecessary noise.</p>
+          <p>Swift Deal Solutions coordinates discreet, high-value transactions across residential and commercial real estate, collector automobiles, and marine assets. Clear briefs. Qualified counterparties. Visible milestones from intake through close.</p>
           <div className="hero-actions">
             <Link className="button button-gold" href="/submit">Start a deal <span>↗</span></Link>
-            <Link className="button button-ghost" href="/opportunities">Explore asset categories <span>↗</span></Link>
+            <Link className="button button-ghost" href="#deal-intelligence">View deal architecture <span>↓</span></Link>
           </div>
         </div>
       </section>
@@ -51,10 +52,12 @@ export default function HomePage() {
       <section className="section shell-wide swift-intro">
         <div>
           <p className="kicker">What Swift does</p>
-          <h2>Private transactions built around the asset—not a generic marketplace.</h2>
+          <h2>A private transaction operating layer built around the asset—not a generic marketplace.</h2>
         </div>
-        <p>Some opportunities need broad exposure. Others do not. Swift is designed for owners, buyers, and authorized representatives who want a more controlled route: organize the facts, define the transaction, reach the right people, and coordinate the next step without turning the process into a public spectacle.</p>
+        <p>Some opportunities need broad exposure. Others do not. Swift is designed for owners, buyers, and authorized representatives who want a more controlled route: organize the facts, frame the economics, verify the parties, reach the right people, and coordinate the close without turning the process into a public spectacle.</p>
       </section>
+
+      <DealArchitectureSuite />
 
       <section className="swift-assets shell-wide" aria-label="Swift Deal Solutions asset categories">
         {assetCards.map((asset) => (
@@ -75,7 +78,7 @@ export default function HomePage() {
         <div className="shell-wide">
           <div className="swift-process-head">
             <div><p className="kicker">How it works</p><h2>A transaction process people can actually follow.</h2></div>
-            <p>The old “Transactions” label made this sound like a deal ledger. It is really the operating process: how an opportunity goes from first contact to a structured, professional close.</p>
+            <p>The operating process is designed to keep decisions, disclosures, diligence, verification, and professional handoffs visible as an opportunity moves toward a structured close.</p>
           </div>
           <div className="swift-process-grid">
             {process.map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
@@ -107,11 +110,11 @@ export default function HomePage() {
         .swift-home-hero-copy{position:relative;z-index:2;padding:120px 0 92px}
         .swift-home-hero h1{max-width:980px;margin:0;font-family:var(--serif);font-size:clamp(62px,7vw,112px);line-height:.91;letter-spacing:-.055em;font-weight:400}
         .swift-home-hero h1 em{display:block;color:var(--gold-bright);font-weight:400}
-        .swift-home-hero-copy>p:not(.hero-eyebrow){max-width:740px;margin:30px 0 36px;color:rgba(255,255,255,.74);font-size:18px;line-height:1.75}
+        .swift-home-hero-copy>p:not(.hero-eyebrow){max-width:760px;margin:30px 0 36px;color:rgba(255,255,255,.74);font-size:18px;line-height:1.75}
         .swift-intro{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.65fr);gap:clamp(48px,8vw,120px);align-items:end}
         .swift-intro h2,.swift-process-head h2,.swift-final-cta h2{margin:14px 0 0;font-family:var(--serif);font-size:clamp(44px,5vw,76px);line-height:1;letter-spacing:-.045em;font-weight:400}
         .swift-intro>p,.swift-process-head>p,.swift-final-cta p{margin:0;color:var(--muted);font-size:16px;line-height:1.8}
-        .swift-assets{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:clamp(86px,9vw,150px)}
+        .swift-assets{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:clamp(86px,9vw,145px);padding-bottom:clamp(86px,9vw,150px)}
         .swift-asset-card{position:relative;min-height:560px;overflow:hidden;border:1px solid rgba(212,175,55,.32);background:#07111c;color:#fff;isolation:isolate}
         .swift-asset-image,.swift-asset-shade{position:absolute;inset:0}
         .swift-asset-image{background-size:cover;background-position:center;transition:transform .55s ease;z-index:-2}
