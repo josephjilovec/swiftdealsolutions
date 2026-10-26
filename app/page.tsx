@@ -75,7 +75,7 @@ export default function HomePage() {
         <div className="shell-wide">
           <div className="swift-process-head">
             <div><p className="kicker">How it works</p><h2>A transaction process people can actually follow.</h2></div>
-            <p>The old “Transactions” label made this sound like a deal ledger. It is really the operating process: how an opportunity goes from first contact to a structured, professional close.</p>
+            <p>Each opportunity starts with the asset, the people involved, and a clear understanding of the next decision. Follow the stages from an initial brief through qualification, diligence, and a coordinated closing.</p>
           </div>
           <div className="swift-process-grid">
             {process.map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
