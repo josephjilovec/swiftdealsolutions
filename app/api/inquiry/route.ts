@@ -43,7 +43,7 @@ export async function POST(request: Request) {
 
     if (!apiKey || !to || !from) {
       console.error("Swift Deal Solutions inquiry email is not configured.");
-      return NextResponse.json({ error: "Inquiry email is not configured yet. Please email realjjemail@gmail.com directly." }, { status: 503 });
+      return NextResponse.json({ error: "Inquiry delivery is temporarily unavailable. Your message has not been sent. Please keep a copy and try again later." }, { status: 503 });
     }
 
     const excluded = new Set(["website", "consent"]);

@@ -14,6 +14,6 @@ export function SiteFooter() {
         <div><span>© {new Date().getFullYear()} Swift Deal Solutions</span><span>Private transactions · United States</span></div>
       </div>
     
-</footer>
+<p style={{ gridColumn: "1 / -1", margin: 0, padding: "16px 24px", fontSize: "12px", lineHeight: 1.6 }}><a href="https://summithillholdings.com/" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Summit Hill Holdings</a></p></footer>
   );
 }

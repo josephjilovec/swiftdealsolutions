@@ -42,7 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    email: site.email,
+    contactPoint: { "@type": "ContactPoint", url: site.contactUrl, contactType: "Business inquiry" },
     description: site.description
   };
 
